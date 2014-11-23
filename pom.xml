@@ -148,13 +148,14 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.7.2</version>
 		</dependency>
-
-		<!-- java servlet -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>servlet-api</artifactId>
+			<!-- tomcat 不需要servlet-api，打包进去会报错 -->
+			<scope>provided</scope>
+			<version>6.0.41</version>
 		</dependency>
+
 
 		<!-- 邮件发送 -->
 		<dependency>
