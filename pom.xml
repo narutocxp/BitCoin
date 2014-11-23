@@ -157,8 +157,6 @@
 			<scope>provided</scope>
 			<version>6.0.41</version>
 		</dependency>
-
-
 		<!-- 邮件发送 -->
 		<dependency>
 			<groupId>javax.mail</groupId>
