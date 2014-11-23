@@ -1,7 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-	http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>team</groupId>
 	<artifactId>team-bitcoin</artifactId>
@@ -17,8 +15,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	</properties>
 
 	<dependencies>
-	
-	    
+
 		<!-- Struts核心包 -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -35,7 +32,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>struts2-spring-plugin</artifactId>
 			<version>${struts2.version}</version>
 		</dependency>
-
 
 		<!-- JSTL 标签 -->
 		<dependency>
@@ -76,8 +72,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-         
-
 
 		<!-- Hibernate -->
 		<!-- SessionFactory -->
@@ -98,7 +92,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>oracle-ojdbc6</artifactId>
 			<version>11.2.0.3.0</version>
 		</dependency>
-		
+
 		<!-- Oracle 10g jdbc 驱动包 -->
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -136,10 +130,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-		
+
 		<!-- httpclient 爬虫 -->
-		 <dependency>
-	 		<groupId>commons-httpclient</groupId>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.0-rc3</version>
 		</dependency>
@@ -153,7 +147,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>1.7.2</version>
-		</dependency>	
-	    
+		</dependency>
+
+		<!-- java servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<!-- 邮件发送 -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+
 	</dependencies>
 </project>
