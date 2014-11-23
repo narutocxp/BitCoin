@@ -6,7 +6,7 @@ import com.bitcoin.common.dao.BaseDao;
 import com.bitcoin.model.User;
 
 @Repository
-public class UserDao extends BaseDao<User, Integer> {
+public class UserDao extends BaseDao<User, String> {
 
 	 
 	
