@@ -154,6 +154,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>jsoup</artifactId>
 			<version>1.7.2</version>
 		</dependency>	
+		
+		<!-- java servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
 	    
 	</dependencies>
 </project>
