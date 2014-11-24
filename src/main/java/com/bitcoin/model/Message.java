@@ -27,6 +27,7 @@ public class Message {
 	@Id 
 	@GeneratedValue(generator = "paymentableGenerator")    
 	@GenericGenerator(name = "paymentableGenerator", strategy = "guid")   
+	@Column(name="id",length=32)
 	public String getId() {
 		return id;
 	}
@@ -35,7 +36,7 @@ public class Message {
 		this.id = id;
 	}
    
-	@Column(name="message_content")
+	@Column(name="message_content",length=50)
 	public String getMessageContent() {
 		return messageContent;
 	}
@@ -44,7 +45,7 @@ public class Message {
 		this.messageContent = messageContent;
 	}
     
-	@Column(name="wallet_address",insertable=false,updatable=false)
+	@Column(name="wallet_address",insertable=false,updatable=false,length=16,nullable=false)
 	public String getWalletAddress() {
 		return walletAddress;
 	}

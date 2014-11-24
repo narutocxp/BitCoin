@@ -19,13 +19,13 @@ import org.hibernate.annotations.GenericGenerator;
 public class Wallet {
 
 	private String walletAddress;
-	private String walletAmount;
+	private double walletAmount;
 	private int walletLocked;
 	private String userMail;
 	private User user;
 	private Set<Message> messages;
 
-	@Column(name="user_mail",insertable=false,updatable=false)
+	@Column(name="user_mail",insertable=false,updatable=false,length=20,nullable=false)
 	public String getUserMail() {
 		return userMail;
 	}
@@ -35,9 +35,7 @@ public class Wallet {
 	}
 
 	@Id
-	@GeneratedValue(generator = "paymentableGenerator")    
-	@GenericGenerator(name = "paymentableGenerator", strategy = "guid")   
-	@Column(name = "wallet_address")
+	@Column(name = "wallet_address",length=16)
 	public String getWalletAddress() {
 		return walletAddress;
 	}
@@ -45,17 +43,16 @@ public class Wallet {
 	public void setWalletAddress(String walletAddress) {
 		this.walletAddress = walletAddress;
 	}
-
-	@Column(name = "wallet_amount")
-	public String getWalletAmount() {
+    @Column(name="walletAmount",nullable=false,precision=9,scale=1)
+	public double getWalletAmount() {
 		return walletAmount;
 	}
 
-	public void setWalletAmount(String walletAmount) {
+	public void setWalletAmount(double walletAmount) {
 		this.walletAmount = walletAmount;
 	}
 
-	@Column(name = "wallet_locked")
+	@Column(name = "wallet_locked",length=1,nullable=false)
 	public int getWalletLocked() {
 		return walletLocked;
 	}

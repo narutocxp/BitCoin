@@ -18,7 +18,7 @@ public class User {
 	private Set<Wallet> wallets;
 
 	@Id
-	@Column(name="user_mail")
+	@Column(name="user_mail",length=20,nullable=false)
 	public String getUserMail() {
 		return userMail;
 	}
@@ -27,7 +27,7 @@ public class User {
 		this.userMail = userMail;
 	}
 
-	@Column(name="password")
+	@Column(name="password",length=16,nullable=false)
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -36,7 +36,7 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	@Column(name="user_name")
+	@Column(name="user_name",length=20)
 	public String getUserName() {
 		return userName;
 	}

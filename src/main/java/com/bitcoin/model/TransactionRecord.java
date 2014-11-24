@@ -30,6 +30,7 @@ public class TransactionRecord {
 	@GeneratedValue(generator = "idGenerator")  
 	@GenericGenerator(name = "idGenerator", strategy = "foreign",   
 	         parameters = { @Parameter(name = "property", value = "message") }) 
+	@Column(name="id",length=32)
 	public String getId() {
 		return id;
 	}
@@ -38,7 +39,7 @@ public class TransactionRecord {
 		this.id = id;
 	}
 
-	@Column(name="recorded_type")
+	@Column(name="recorded_type",length=1,nullable=false)
 	public int getRecordedType() {
 		return recordedType;
 	}
@@ -47,7 +48,7 @@ public class TransactionRecord {
 		this.recordedType = recordedType;
 	}
    
-	@Column(name="recorded_amount")
+	@Column(name="recorded_amount",precision=9,scale=1,nullable=false)
 	public double getRecordedAmount() {
 		return recordedAmount;
 	}
@@ -56,7 +57,7 @@ public class TransactionRecord {
 		this.recordedAmount = recordedAmount;
 	}
 
-	@Column(name="recorded_time")
+	@Column(name="recorded_time",nullable=false)
 	public Date getRecordedTime() {
 		return recordedTime;
 	}
@@ -65,7 +66,7 @@ public class TransactionRecord {
 		this.recordedTime = recordedTime;
 	}
 
-	@Column(name="recorded_is_finish")
+	@Column(name="recorded_is_finish",length=1,nullable=false)
 	public int getRecorded_is_finish() {
 		return recorded_is_finish;
 	}
@@ -74,7 +75,7 @@ public class TransactionRecord {
 		this.recorded_is_finish = recorded_is_finish;
 	}
 
-	@Column(name="recorded_is_success")
+	@Column(name="recorded_is_success",length=1,nullable=false)
 	public int getRecorded_is_success() {
 		return recorded_is_success;
 	}

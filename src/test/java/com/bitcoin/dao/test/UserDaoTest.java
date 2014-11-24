@@ -1,5 +1,6 @@
 package com.bitcoin.dao.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,14 @@ public class UserDaoTest {
 	@Test
 	public void test() {
 		 
+		int currentCount=userDao.getCount("from User");
 		User  user=new User();
-		user.setUserMail("65196085");
-		user.setUserName("narutocxp");
+		user.setUserMail("651960851");
 		user.setUserPassword("616409");
 		userDao.save(user);
+		int nowCount=userDao.getCount("from User");
+		
+		Assert.assertTrue(currentCount+1==nowCount);
 		
 	}
 
