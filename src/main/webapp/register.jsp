@@ -10,6 +10,8 @@
 	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
    <script src="/bootstrap/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="js/ajaxForVcode.js"></script>
+   <script type="text/javascript" src="js/getmd5.js"></script>
    <style type="text/css">
    .back{
 	   background-color:rgb(247,247,247);
@@ -53,7 +55,7 @@
 </head>
 <body>
 
-<form class="form-horizontal" role="form" action="register">
+<form class="form-horizontal" role="form" method="post" action="register" onsubmit="return canSubmit()">
  <div class="back">
      <h4 class="cs_title"><strong>Create A new Wallet.</strong></h4>
      <h4><small> Please choose an alias and password for the new wallet.</small></h4><br />
@@ -74,13 +76,13 @@ Email:</p></label>
    <div class="form-group">
       <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Password:</p></label>
       <div class="col-sm-10">
-         <input type="password" class="form-control" id="lastname" name="user.userPassword" required >
+         <input type="password" class="form-control" id="password" name="user.userPassword" required pattern="^[A-Za-z]{1}[a-zA-Z0-9.]{7,15}$" title="密码为8-16为，以字母开头,只能包含数字，字母及小数点" >
       </div>
    </div>
    <div class="form-group">
       <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Confirm Password:</p></label>
       <div class="col-sm-10">
-         <input type="password" class="form-control" id="lastname" required >
+         <input type="password" class="form-control" id="confimPassword" required  pattern="^[A-Za-z]{1}[a-zA-Z0-9.]{7,15}$" title="密码为8-16为，以字母开头,只能包含数字，字母及小数点">
       </div>
    </div>
    <div class="form-group">
@@ -93,7 +95,7 @@ Email:</p></label>
    <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label"><p class="text-muted">Captcha:</p></label>
       <div class="col-sm-10">
-         <input type="text" class="form-control" id="firstname" required >
+         <input type="text" class="form-control" id="vcode"  required >
       </div>
    </div>
    
@@ -101,7 +103,7 @@ Email:</p></label>
    
    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Continue</button>
+        <button type="submit" class="btn btn-primary" >Continue</button>
       </div>
    </div>
  </div>

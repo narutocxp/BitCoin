@@ -39,10 +39,18 @@
 		<servlet-name>VcodeServlet</servlet-name>
 		<servlet-class>com.bitcoin.servlet.VcodeServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CheckVcodeServlet</servlet-name>
+		<servlet-class>com.bitcoin.servlet.CheckVcodeServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>VcodeServlet</servlet-name>
 		<url-pattern>/img/vcode.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CheckVcodeServlet</servlet-name>
+		<url-pattern>/checkvcode.do</url-pattern>
 	</servlet-mapping>
 
 

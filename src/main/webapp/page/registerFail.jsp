@@ -58,7 +58,7 @@
 				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 			</button>
 			<p class="p lead">
-				ERROR!<br /> warning:注册失败，你输入的行已被占用！<a href="#">点击返回</a>
+				ERROR!<br /> warning:注册失败，你输入的行已被占用！<a href="register.jsp">点击返回</a>
 			</p>
 		</div>
 		<div class="div2">

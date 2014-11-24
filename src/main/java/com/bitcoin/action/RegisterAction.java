@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ModelDriven;
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")
-@Namespace(value="/example")
+@Namespace(value="/*")
 public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 
 	private User user;
