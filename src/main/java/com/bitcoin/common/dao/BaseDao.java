@@ -31,10 +31,10 @@ import org.springframework.util.Assert;
 public class BaseDao<T, PK extends Serializable> {
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 	protected Class<T> entityClass;
+	
 	@Autowired
 	protected HibernateTemplate hibernateTemplate;
-
-	@Autowired
+    @Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	/**

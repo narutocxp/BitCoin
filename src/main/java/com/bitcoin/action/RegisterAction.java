@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ModelDriven;
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")
-@Namespace(value="/*")
+@Namespace(value="/example")
 public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 
 	private User user;
@@ -34,7 +34,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 	public User getModel() {
 		return user;
 	}
-	@Action(value="hello",results={@Result(name="success",location="/page/accountver.jsp")})
+	@Action(value="register",results={@Result(name="success",location="/success.jsp")})
 	public String register() throws Exception{
 		
 		 if(registerService.isRegisterSuccess(user))
