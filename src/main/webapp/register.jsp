@@ -45,6 +45,10 @@
 	   padding-top:20px;
 	   padding-bottom:10px;
    }
+   
+   #id_verify_img {
+   	   cursor: pointer;
+   }
    </style>
 </head>
 <body>
@@ -57,7 +61,7 @@
       <label for="firstname" class="col-sm-2 control-label"><p class="text-muted">
 Email:</p></label>
       <div class="col-sm-10">
-         <input type="text" class="form-control" id="firstname" name="user.userMail">
+         <input type="text" class="form-control" id="firstname" name="user.userMail" required pattern="^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$" title="邮箱正确格式：xxx@xxx.xxx">  
       </div>
    </div>
    <div class="form-group">
@@ -70,26 +74,26 @@ Email:</p></label>
    <div class="form-group">
       <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Password:</p></label>
       <div class="col-sm-10">
-         <input type="password" class="form-control" id="lastname" name="user.userPassword">
+         <input type="password" class="form-control" id="lastname" name="user.userPassword" required >
       </div>
    </div>
    <div class="form-group">
       <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Confirm Password:</p></label>
       <div class="col-sm-10">
-         <input type="password" class="form-control" id="lastname" >
+         <input type="password" class="form-control" id="lastname" required >
       </div>
    </div>
    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
          <div class="checkbox">
-            <img id="id_verify_img_sor" src="img/vcode.jpg" alt="加载中..." onclick="this.src='img/vcode.jpg?'+ new Date().getTime()"/>
+            <img id="id_verify_img" src="img/vcode.jpg" alt="加载中..." onclick="this.src='img/vcode.jpg?'+ new Date().getTime()"/>
          </div>
       </div>
    </div>
    <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label"><p class="text-muted">Captcha:</p></label>
       <div class="col-sm-10">
-         <input type="text" class="form-control" id="firstname" >
+         <input type="text" class="form-control" id="firstname" required >
       </div>
    </div>
    
