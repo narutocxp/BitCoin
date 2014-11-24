@@ -7,7 +7,7 @@
 <link rel="stylesheet"
 	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<title>Insert title here</title>
+<title>error</title>
 <style type="text/css">
 .div {
 	margin-left: 10%;
@@ -53,17 +53,17 @@
 </head>
 <body>
 	<div class="div">
-		<div class="div1 bg-success">
+		<div class="div1 bg-info">
 			<button type="button" class="close button">
 				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 			</button>
-			<p class="p  lead">
-				SUCCESS!<br /> 注册成功，您必须在5天内到你的邮箱验证，否则帐号将失效！<a href="#">点击登录</a>
+			<p class="p lead">
+				ERROR!<br /> warning:注册失败，你输入的行已被占用！<a href="#">点击返回</a>
 			</p>
 		</div>
 		<div class="div2">
 			<center>
-				<img src="success.jpg" class="img" />
+				<img src="../img/error.jpg" class="img" />
 			</center>
 		</div>
 	</div>
