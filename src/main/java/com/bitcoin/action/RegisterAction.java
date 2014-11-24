@@ -34,7 +34,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 	public User getModel() {
 		return user;
 	}
-	@Action(value="register",results={@Result(name="success",location="/success.jsp")})
+	@Action(value="register",results={@Result(name="success",location="/page/registerSuccess.jsp"),@Result(name="error",location="/page/registerFail.jsp")})
 	public String register() throws Exception{
 		
 		 if(registerService.isRegisterSuccess(user))
