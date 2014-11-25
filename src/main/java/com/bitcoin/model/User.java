@@ -15,6 +15,8 @@ public class User {
 	private String userMail;
 	private String userPassword;
 	private String userName;
+	private String userRegisterTime;
+	private String userVerificationCode;
 	private Set<Wallet> wallets;
 
 	@Id
@@ -27,7 +29,7 @@ public class User {
 		this.userMail = userMail;
 	}
 
-	@Column(name="password",length=32,nullable=false)
+	@Column(name="user_password",length=32,nullable=false)
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -54,5 +56,25 @@ public class User {
 	public void setWallets(Set<Wallet> wallets) {
 		this.wallets = wallets;
 	}
+    @Column(name="register_time")
+	public String getUserRegisterTime() {
+		return userRegisterTime;
+	}
+
+	public void setUserRegisterTime(String userRegisterTime) {
+		this.userRegisterTime = userRegisterTime;
+	}
+
+	@Column(name="verification_code")
+	public String getUserVerificationCode() {
+		return userVerificationCode;
+	}
+
+	public void setUserVerificationCode(String userVerificationCode) {
+		this.userVerificationCode = userVerificationCode;
+	}
+
+	 
+	
 
 }

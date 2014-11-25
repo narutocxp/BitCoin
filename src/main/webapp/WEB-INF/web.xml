@@ -29,12 +29,12 @@
 		<filter-name>NotLoginFilter</filter-name>
 		<filter-class>com.bitcoin.filter.NotLoginFilter</filter-class>
 	</filter>
-
+<!--  
 	<filter-mapping>
 		<filter-name>NotLoginFilter</filter-name>
 		<url-pattern>/page/*</url-pattern>
 	</filter-mapping>
-	
+	-->
 	<servlet>
 		<servlet-name>VcodeServlet</servlet-name>
 		<servlet-class>com.bitcoin.servlet.VcodeServlet</servlet-class>

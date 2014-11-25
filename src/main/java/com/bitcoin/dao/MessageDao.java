@@ -8,4 +8,5 @@ import com.bitcoin.model.Message;
 @Repository
 public class MessageDao extends BaseDao<Message, String> {
 
+	 
 }
