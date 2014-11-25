@@ -64,7 +64,7 @@
 		</div>
 		<div class="div2">
 			<center>
-				<img src="${path}/img/success.jpg" class="img" />
+				<img  src="${path}/img/success.jpg" class="img" />
 			</center>
 		</div>
 	</div>
