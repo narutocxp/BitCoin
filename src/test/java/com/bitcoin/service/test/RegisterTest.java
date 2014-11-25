@@ -21,11 +21,12 @@ public class RegisterTest {
 	@Test
 	public void test() {
 		User user = new User();
-		user.setUserMail("1302665507@qq.com");
+		user.setUserMail("840129008@qq.com");
 		user.setUserName("linxiaofei");
 		user.setUserPassword("123456");
 		boolean isSuccess = registerService.isRegisterSuccess(user);
-	
+		
+		
 		Assert.assertTrue(isSuccess);
 	}
 
