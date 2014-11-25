@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.bitcoin.service.RegisterService;
+import com.bitcoin.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -44,7 +44,7 @@ public class LoginAction  extends ActionSupport {
 	@Action(value="login",results={@Result(name="success",location="/page/loginSuccess.jsp"),@Result(name="error",location="/page/loginFail.jsp")})
 	public String login() throws Exception{
 		
-		 if(loginService.isloginSuccess(userMail,userPassword))
+		 if(loginService.isLoginSuccess(userMail,userPassword))
 			 return SUCCESS;
 		 
 		 return ERROR;
