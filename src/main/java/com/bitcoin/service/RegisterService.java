@@ -1,5 +1,7 @@
 package com.bitcoin.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +54,12 @@ public class RegisterService {
 	 */
 	public boolean isRegisterSuccess(User user){
 		if(canRegister(user.getUserMail())){  //用户可以正常注册
+			String vcode = VCodeUtils.Vcode(6);
+			Date now = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String registerTime = sdf.format(now);
+			user.setUserRegisterTime(registerTime);
+			user.setUserVerificationCode(vcode);
 			this.saveUser(user);    //保存用户信息
 			
 			//发送邮件到注册邮箱
@@ -60,10 +68,10 @@ public class RegisterService {
 			utils.setPassword("dulimima1");
 			utils.setSmtpHost("smtp.qq.com");
 			
-			String vcode = VCodeUtils.Vcode(6);
+			
 			String mailSubject = "云币账户激活";
 			String toMail = user.getUserMail();
-			String address = "  http://127.0.0.1:8080/team-bitcoin/firstlogin/firstlogin.jsp";
+			String address = "  http://127.0.0.1:8080/team-bitcoin/activate.action?userEmail="+user.getUserMail();
 			StringBuffer mailContent = new StringBuffer();
 			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address);
 			
