@@ -42,4 +42,45 @@ public class LoginService {
 		
 		return false;
 	}
+	
+	
+	/**
+	 * 根据Email获取对应用户的激活码
+	 * @param email
+	 * @return
+	 */
+	public String getVcodeByEmail(String email){
+		
+		List<User> users = userDao.loadAll();
+		
+		for(User u: users){
+			if(email.equals(u.getUserMail()))
+				return u.getUserVerificationCode();
+		}
+		
+		return null;
+	}
+	
+	
+	/**
+	 * 判断给定邮箱的激活码是否正确
+	 * @param email
+	 * @param vCode
+	 * @param userName
+	 * @return
+	 */
+	public boolean isCorrectVcoe(String email, String vCode,String userName){
+		if(vCode.equals(getVcodeByEmail(email))){   //激活码正确
+			//设置用户名
+			String hql = "from User where userMail = ?";
+			List<User> users = userDao.find(hql, email);
+			
+			users.get(0).setUserName(userName);
+			userDao.update(users.get(0));
+			
+			return true;
+		}
+		
+		return false;
+	}
 }

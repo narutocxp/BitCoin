@@ -66,7 +66,7 @@
    <div class="form-group">
 	    <label for="inputVcode" class="col-sm-2 control-label col-sm-offset-1">Captcha </label>
 	    <div class="col-sm-3">
-	      <input type="password" class="form-control" id="inputVcode" placeholder="enter the captcha"  required >
+	      <input type="text" class="form-control" id="inputVcode" placeholder="enter the captcha"  required >
 	    </div>
  	</div>
  	<br />

@@ -21,7 +21,7 @@
 <br />
 <br />
 <br />
-<form class="form-horizontal" role="form" method="post" action="" onsubmit="return canSubmit()">
+<form class="form-horizontal" role="form" method="post" action="firstLogin" onsubmit="return canSubmit()">
  <div class="container">
  	<div class="row">
      <h4 class="col-md-2 col-sm-offset-1"><strong>Wallet validate</strong></h4>
@@ -39,14 +39,14 @@
     <div class="form-group">
 	    <label for="inputName" class="col-sm-2 control-label">用户名</label>
 	    <div class="col-sm-3">
-	      <input type="text" class="form-control" id="inputName" placeholder="用户名" required>
+	      <input name="user.userName" type="text" class="form-control" id="inputName" placeholder="用户名" required>
 	    </div>
  	</div>
   <div class="form-group">
 	  
 	    <label for="inputVcode" class="col-sm-2 control-label ">验证码</label>
 	    <div class="col-sm-3">
-	      <input type="text" class="form-control " id="inputVcode" placeholder="验证码" required >
+	      <input name="user.userVerificationCode" type="text" class="form-control " id="inputVcode" placeholder="验证码" required >
 	    </div>
 	  
   </div>
@@ -58,7 +58,7 @@
     </div>
   </div>
  </div>
-
+<input type="hidden" name="user.userMail" value="${userEmail }"/>
 </form>
 
 </body>
