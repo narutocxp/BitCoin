@@ -31,6 +31,8 @@ public class LoginService {
 	public boolean isLoginSuccess(String userMail,String userPassword){
 		
 		List<User> users = (List<User>)userDao.loadAll();
+		if(0 == users.size())
+			return false;
 		
 		for(User u:users){
 			if(userMail.trim().equals(u.getUserMail())&&userPassword.trim().equals(u.getUserPassword())){

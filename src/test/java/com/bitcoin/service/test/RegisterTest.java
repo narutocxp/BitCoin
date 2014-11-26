@@ -26,7 +26,6 @@ public class RegisterTest {
 		user.setUserPassword("123456");
 		boolean isSuccess = registerService.isRegisterSuccess(user);
 		
-		
 		Assert.assertTrue(isSuccess);
 	}
 

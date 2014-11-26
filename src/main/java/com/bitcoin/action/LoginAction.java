@@ -41,8 +41,9 @@ public class LoginAction  extends ActionSupport {
 	}
 
 
+	@Override
 	@Action(value="login",results={@Result(name="success",location="/page/loginSuccess.jsp"),@Result(name="error",location="/page/loginFail.jsp")})
-	public String login() throws Exception{
+	public String execute() throws Exception{
 		
 		 if(loginService.isLoginSuccess(userMail,userPassword))
 			 return SUCCESS;
