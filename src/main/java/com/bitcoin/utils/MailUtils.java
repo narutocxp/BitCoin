@@ -32,7 +32,7 @@ public class MailUtils {
 	 * @param subject
 	 * @param text
 	 */
-	public void sendMailUtis(String toMail, String subject, String text) {
+	public boolean sendMailUtis(String toMail, String subject, String text) {
 		Properties properties = new Properties();
 		properties.put("mail.smtp.host", smtpHost);
 		properties.put("mail.smtp.socketFactory.port", "465");
@@ -64,8 +64,9 @@ public class MailUtils {
 			mimeMessage.saveChanges();
 			// mimeMessage.setText(text);
 			Transport.send(mimeMessage);
+			return true;
 		} catch (Exception e) {
-			System.out.println(e);
+			return false;
 		}
 	}
 

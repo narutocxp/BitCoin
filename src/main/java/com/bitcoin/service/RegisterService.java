@@ -75,9 +75,9 @@ public class RegisterService {
 			StringBuffer mailContent = new StringBuffer();
 			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address);
 			
-			utils.sendMailUtis(toMail, mailSubject, mailContent.toString());
-			
-			return true;
+			if(utils.sendMailUtis(toMail, mailSubject, mailContent.toString())) return true;
+			else
+		       	return false;
 		}
 		
 		return false;

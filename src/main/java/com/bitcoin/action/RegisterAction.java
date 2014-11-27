@@ -4,6 +4,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 	public User getModel() {
 		return user;
 	}
-	@Action(value="register",results={@Result(name="success",location="/page/registerSuccess.jsp"),@Result(name="error",location="/page/registerFail.jsp")})
+	@Action(value="register",results={@Result(name="success",location="/WEB-INF/registerSuccess.jsp"),@Result(name="error",location="/WEB-INF/registerFail.jsp")})
 	public String register() throws Exception{
 		
 		 if(registerService.isRegisterSuccess(user))

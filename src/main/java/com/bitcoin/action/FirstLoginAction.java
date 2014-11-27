@@ -39,7 +39,7 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 
 
 	@Override
-	@Action(value="firstLogin",results={@Result(name="success",location="/page/loginSuccess.jsp"),@Result(name="error",location="/firstlogin/firstlogin.jsp")})
+	@Action(value="firstLogin",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp"),@Result(name="error",location="/WEB-INF/firstlogin.jsp")})
 	public String execute() throws Exception {
 		if(loginService.isCorrectVcoe(user.getUserMail(), user.getUserVerificationCode(),user.getUserName()))
 			return SUCCESS;
@@ -52,6 +52,11 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 		return this.user;
 	}
 	
+	 @Action(value="registerlogin",results={@Result(name="success",location="/WEB-INF/firstlogin.jsp")})
+	 public String registerLogin() throws Exception{
+	    	
+	    	return SUCCESS;
+	 }
 	
 
 }

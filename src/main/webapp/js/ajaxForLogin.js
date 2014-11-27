@@ -72,8 +72,7 @@ function GetXmlHttpObject(){
 	 if(flag==false)
 		  return false;
 	 
-	 document.getElementById("password").value=hex_md5(document.getElementById("password").value);
-	 document.getElementById("confimPassword").value=hex_md5(document.getElementById("confimPassword").value);
+	 document.getElementById("inputPassWord").value=hex_md5(document.getElementById("inputPassWord").value);
 	 return true;
 	 
  }

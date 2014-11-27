@@ -42,7 +42,7 @@ public class LoginAction  extends ActionSupport {
 
 
 	@Override
-	@Action(value="login",results={@Result(name="success",location="/page/loginSuccess.jsp"),@Result(name="error",location="/page/loginFail.jsp")})
+	@Action(value="login",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp"),@Result(name="error",location="/WEB-INF/loginFail.jsp")})
 	public String execute() throws Exception{
 		
 		 if(loginService.isLoginSuccess(userMail,userPassword))

@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-   <script type="text/javascript" src="js/ajaxForVcode.js"></script>
+   <script type="text/javascript" src="js/ajaxForLogin.js"></script>
    <script type="text/javascript" src="js/getmd5.js"></script>
    <style type="text/css">
     body {
@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<form class="form-horizontal" role="form" method="post" action="login.action" >
+<form class="form-horizontal" role="form" method="post" action="login.action" onsubmit="return canSubmit()">
 <div class="container">
 	<div class="row">
 		<h2 class="col-md-5 col-sm-offset-1">Welcome Back</h2>
@@ -66,7 +66,7 @@
    <div class="form-group">
 	    <label for="inputVcode" class="col-sm-2 control-label col-sm-offset-1">Captcha </label>
 	    <div class="col-sm-3">
-	      <input type="text" class="form-control" id="inputVcode" placeholder="enter the captcha"  required >
+	      <input type="text" class="form-control" id="vcode" placeholder="enter the captcha"  required >
 	    </div>
  	</div>
  	<br />
