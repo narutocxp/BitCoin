@@ -2,16 +2,16 @@ package com.bitcoin.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
 
 @Entity
 @Table(name="t_transaction_recorded")
@@ -23,13 +23,21 @@ public class TransactionRecord {
 	private Date recordedTime;
 	private int recorded_is_finish;
 	private int recorded_is_success;
-	private Message message;
+	private Wallet wallet;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="wallet_address",nullable=false)
+	public Wallet getWallet() {
+		return wallet;
+	}
 
+	public void setWallet(Wallet wallet) {
+		this.wallet = wallet;
+	}
 
 	@Id 
-	@GeneratedValue(generator = "idGenerator")  
-	@GenericGenerator(name = "idGenerator", strategy = "foreign",   
-	         parameters = { @Parameter(name = "property", value = "message") }) 
+	@GeneratedValue(generator = "paymentableGenerator")    
+	@GenericGenerator(name = "paymentableGenerator", strategy = "guid")   
 	@Column(name="id",length=32)
 	public String getId() {
 		return id;
@@ -84,14 +92,5 @@ public class TransactionRecord {
 		this.recorded_is_success = recorded_is_success;
 	}
 
-	@OneToOne
-    @PrimaryKeyJoinColumn(name="id")
-	public Message getMessage() {
-		return message;
-	}
-
-	public void setMessage(Message message) {
-		this.message = message;
-	}
-
+	 
 }

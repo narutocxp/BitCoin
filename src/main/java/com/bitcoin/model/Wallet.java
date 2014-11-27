@@ -5,14 +5,12 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="t_wallet")
@@ -23,7 +21,7 @@ public class Wallet {
 	private int walletLocked;
 	private String userMail;
 	private User user;
-	private Set<Message> messages;
+	private Set<TransactionRecord> transactionRecord; 
 
 	@Column(name="user_mail",insertable=false,updatable=false,length=20,nullable=false)
 	public String getUserMail() {
@@ -72,13 +70,14 @@ public class Wallet {
 	}
 
 	@OneToMany
-	public Set<Message> getMessages() {
-		return messages;
+	public Set<TransactionRecord> getTransactionRecord() {
+		return transactionRecord;
 	}
-    
-	
-	public void setMessages(Set<Message> messages) {
-		this.messages = messages;
+
+	public void setTransactionRecord(Set<TransactionRecord> transactionRecord) {
+		this.transactionRecord = transactionRecord;
 	}
+   
+ 
 
 }
