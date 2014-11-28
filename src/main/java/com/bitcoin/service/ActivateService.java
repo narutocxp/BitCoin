@@ -23,7 +23,11 @@ public class ActivateService {
 		this.userDao = userDao;
 	}
 	
-	
+	/**
+	 * 判断是否是首次激活
+	 * @param userEmail
+	 * @return
+	 */
 	public boolean isFirstTimeLogin(String userEmail){
 		String hql = "from User where userMail=?";
 		List<User> users = userDao.find(hql,userEmail);
@@ -31,4 +35,22 @@ public class ActivateService {
 			return true;
 		return false;
 	}
+	
+	
+	
+	/**
+	 * 判断用户的激活链接是否过期
+	 * @param userEmail
+	 * @return
+	 */
+	public boolean isWithinTime(String userEmail){
+		String hql = "from User where userMail=?";
+		List<User> users = userDao.find(hql,userEmail);
+		
+		if(0 == users.size())
+			return false;
+		
+		return true;
+	}
+	
 }

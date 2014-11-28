@@ -83,4 +83,19 @@ public class LoginService {
 		
 		return false;
 	}
+	
+	/**
+	 * 是否是首次激活
+	 * @param email
+	 * @return
+	 */
+	public boolean isFirstTimeActivate(String email){
+		String hql = "from User where userMail = ?";
+		List<User> users = userDao.find(hql, email);
+		System.out.println(users.size());
+		if(null == users.get(0).getUserName())
+			return true;
+		
+		return false;
+	}
 }

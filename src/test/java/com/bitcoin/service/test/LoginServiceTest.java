@@ -29,9 +29,16 @@ public class LoginServiceTest {
 	
 	@Test
 	public void testIsCorrectVcoe(){
+		
 		boolean result = loginService.isCorrectVcoe("840129008@qq.com", "7林I3OU1", "xiao");
 		
 		System.out.println(result);
+	}
+	
+	@Test
+	public void testIsFirstTimeActivate(){
+		
+		System.out.println(loginService.isFirstTimeActivate("840129008@qq.com"));
 	}
 
 }

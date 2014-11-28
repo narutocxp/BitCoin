@@ -32,11 +32,9 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 		return user;
 	}
 
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 
 	@Override
 	@Action(value="firstLogin",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp"),@Result(name="error",location="/WEB-INF/firstlogin.jsp")})
@@ -47,12 +45,11 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 		return ERROR;
 	}
 
-
 	public User getModel() {
 		return this.user;
 	}
 	
-	 @Action(value="registerlogin",results={@Result(name="success",location="/WEB-INF/firstlogin.jsp")})
+	 @Action(value="registerlogin",results={@Result(name="success",location="/login.jsp")})
 	 public String registerLogin() throws Exception{
 	    	
 	    	return SUCCESS;

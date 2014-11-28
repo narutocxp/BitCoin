@@ -58,7 +58,7 @@
     </div>
   </div>
  </div>
-<input type="hidden" name="user.userMail" value="${userEmail }"/>
+<input type="hidden" name="user.userMail" value="${user.userMail }"/>
 </form>
 
 </body>
