@@ -1,5 +1,8 @@
 package com.bitcoin.action;
 
+import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -20,7 +23,8 @@ public class LoginAction  extends ActionSupport {
 	
 	private String userMail;
 	private String userPassword;
-
+    Map<String,Object> m=ServletActionContext.getContext().getSession();
+	
 	@Autowired
 	private LoginService loginService;
 
@@ -45,13 +49,17 @@ public class LoginAction  extends ActionSupport {
 	@Action(value="login",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp"),@Result(name="error",location="/WEB-INF/loginFail.jsp")})
 	public String execute() throws Exception{
 		
-		 if(loginService.isLoginSuccess(userMail,userPassword))
+		 if(loginService.isLoginSuccess(userMail,userPassword)){
+			 m.put("USER_MAIL", userMail);
 			 return SUCCESS;
-		 
+	         	 
+		 }
 		 return ERROR;
 		
 		
 	}
+	
+	
 	
 	
 }

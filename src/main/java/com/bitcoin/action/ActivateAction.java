@@ -44,9 +44,9 @@ public class ActivateAction extends ActionSupport implements ModelDriven<User>{
 	}
 
 
-	@Override
+	
 	@Action(value="activate",results={@Result(name="success",location="/WEB-INF/firstlogin.jsp"),@Result(name="error",location="/login.jsp"),@Result(name="input",location="/register.jsp")})
-	public String execute() throws Exception {
+	public String activate() throws Exception {
 		if(!activateService.isWithinTime(user.getUserMail()))
 			return INPUT;
 		

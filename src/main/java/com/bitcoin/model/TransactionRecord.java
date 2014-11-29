@@ -18,15 +18,16 @@ import org.hibernate.annotations.GenericGenerator;
 public class TransactionRecord {
 
 	private String id;
-	private int recordedType;
+	private String walletRemit;
+	private String walletImport;
 	private double recordedAmount;
 	private Date recordedTime;
 	private int recorded_is_finish;
 	private int recorded_is_success;
 	private Wallet wallet;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="wallet_address",nullable=false)
+	@ManyToOne
+	@JoinColumn(name="wallet_address")
 	public Wallet getWallet() {
 		return wallet;
 	}
@@ -47,15 +48,24 @@ public class TransactionRecord {
 		this.id = id;
 	}
 
-	@Column(name="recorded_type",length=1,nullable=false)
-	public int getRecordedType() {
-		return recordedType;
+	@Column(name="wallet_remit",length=16,nullable=false) 
+	public String getWalletRemit() {
+		return walletRemit;
 	}
 
-	public void setRecordedType(int recordedType) {
-		this.recordedType = recordedType;
+	public void setWalletRemit(String walletRemit) {
+		this.walletRemit = walletRemit;
 	}
    
+	@Column(name="wallet_import",length=16,nullable=false)
+	public String getWalletImport() {
+		return walletImport;
+	}
+
+	public void setWalletImport(String walletImport) {
+		this.walletImport = walletImport;
+	}
+
 	@Column(name="recorded_amount",precision=9,scale=1,nullable=false)
 	public double getRecordedAmount() {
 		return recordedAmount;

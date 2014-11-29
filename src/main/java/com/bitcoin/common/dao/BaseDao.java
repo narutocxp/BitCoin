@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -331,4 +332,20 @@ public class BaseDao<T, PK extends Serializable> {
 		return jdbcTemplate;
 	}
 
+	
+	public List<Map<String,Object>> getTListWithLimit(String sql,int from,int amount){
+		
+		 List<Map<String,Object>> maps=(List<Map<String,Object>>)getJdbcTemplate().queryForList(sql,new Object[]{from,from+amount});
+		  
+		 
+		 return maps;
+		
+	}
+	
+	public int getTCount(String sql){
+		
+		return  jdbcTemplate.queryForInt(sql);
+		
+	}
+	
 }

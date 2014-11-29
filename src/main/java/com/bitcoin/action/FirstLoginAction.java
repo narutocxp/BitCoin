@@ -1,5 +1,8 @@
 package com.bitcoin.action;
 
+import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -21,7 +24,7 @@ import com.opensymphony.xwork2.ModelDriven;
 public class FirstLoginAction extends ActionSupport implements ModelDriven<User>{
 
 	private static final long serialVersionUID = 1L;
-	
+	 Map<String,Object> m=ServletActionContext.getContext().getSession();
 	private User user;
 	
 	@Autowired
@@ -39,9 +42,10 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 	@Override
 	@Action(value="firstLogin",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp"),@Result(name="error",location="/WEB-INF/firstlogin.jsp")})
 	public String execute() throws Exception {
-		if(loginService.isCorrectVcoe(user.getUserMail(), user.getUserVerificationCode(),user.getUserName()))
+		if(loginService.isCorrectVcoe(user.getUserMail(), user.getUserVerificationCode(),user.getUserName())){
+			m.put("USER_MAIL", user.getUserMail());
 			return SUCCESS;
-		
+		}
 		return ERROR;
 	}
 

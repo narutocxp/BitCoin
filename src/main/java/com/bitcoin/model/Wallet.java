@@ -41,7 +41,7 @@ public class Wallet {
 	public void setWalletAddress(String walletAddress) {
 		this.walletAddress = walletAddress;
 	}
-    @Column(name="walletAmount",nullable=false,precision=9,scale=1)
+    @Column(name="wallet_amount",nullable=false,precision=9,scale=1)
 	public double getWalletAmount() {
 		return walletAmount;
 	}
@@ -59,7 +59,7 @@ public class Wallet {
 		this.walletLocked = walletLocked;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "user_mail")
 	public User getUser() {
 		return user;
@@ -69,7 +69,8 @@ public class Wallet {
 		this.user = user;
 	}
 
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="wallet")
+	@Column(nullable=true)
 	public Set<TransactionRecord> getTransactionRecord() {
 		return transactionRecord;
 	}

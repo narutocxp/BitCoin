@@ -71,7 +71,7 @@ public class RegisterService {
 			
 			String mailSubject = "云币账户激活";
 			String toMail = user.getUserMail();
-			String address = "  http://127.0.0.1:8080/team-bitcoin/activate.action?user.userMail="+user.getUserMail();
+			String address = "   http://127.0.0.1:8080/team-bitcoin/activate?user.userMail="+user.getUserMail();
 			StringBuffer mailContent = new StringBuffer();
 			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address);
 			
