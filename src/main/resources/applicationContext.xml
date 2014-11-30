@@ -80,5 +80,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<!-- 调度 -->
+	<tx:annotation-driven/>	
 	
 </beans>
