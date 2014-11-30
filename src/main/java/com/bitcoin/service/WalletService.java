@@ -63,7 +63,7 @@ public class WalletService {
 	}
 
 
-	public List<Wallet> search(String keyAddress, int selected) {
+	public List<Wallet> search(String sql,String keyAddress, int selected) {
 
 		List<Wallet> listWallets = loadAll();
 		List<Wallet> findWallets = new ArrayList<Wallet>();
@@ -95,6 +95,10 @@ public class WalletService {
 		return findWallets;
 
 	}
+	
+	
+	
+	
 	
 	@SuppressWarnings("rawtypes")
 	public List<Wallet> getWalletListByLimit(String sql,int from,int amount){
@@ -129,5 +133,14 @@ public class WalletService {
 		
 	}
 
+	public boolean isExistWalletAddress(String walletAddress){
+		
+		           if(walletDao.get(walletAddress)!=null)
+		        	   return true;
+		         
+		           return  false;
+		
+	}	
+	
 
 }

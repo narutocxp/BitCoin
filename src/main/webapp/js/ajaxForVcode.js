@@ -49,7 +49,7 @@ function GetXmlHttpObject(){
           
           if(xmlHttp.responseText=='false'){
         	  alert("验证码错误");
-              flag=false;
+              return;
           }
           
         	 

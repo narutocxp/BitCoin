@@ -53,6 +53,13 @@
 		<servlet-name>CheckVcodeServlet</servlet-name>
 		<servlet-class>com.bitcoin.servlet.CheckVcodeServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>CheckWalletAddressServlet</display-name>
+		<servlet-name>CheckWalletAddressServlet</servlet-name>
+		<servlet-class>com.bitcoin.servlet.CheckWalletAddressServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>VcodeServlet</servlet-name>
@@ -61,6 +68,10 @@
 	<servlet-mapping>
 		<servlet-name>CheckVcodeServlet</servlet-name>
 		<url-pattern>/checkvcode.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CheckWalletAddressServlet</servlet-name>
+		<url-pattern>/checkwalletaddress.do</url-pattern>
 	</servlet-mapping>
 
 
