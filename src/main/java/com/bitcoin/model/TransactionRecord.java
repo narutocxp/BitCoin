@@ -21,7 +21,7 @@ public class TransactionRecord {
 	private String walletRemit;
 	private String walletImport;
 	private double recordedAmount;
-	private Date recordedTime;
+	private String recordedTime;
 	private int recorded_is_finish;
 	private int recorded_is_success;
 	private Wallet wallet;
@@ -76,11 +76,11 @@ public class TransactionRecord {
 	}
 
 	@Column(name="recorded_time",nullable=false)
-	public Date getRecordedTime() {
+	public String getRecordedTime() {
 		return recordedTime;
 	}
 
-	public void setRecordedTime(Date recordedTime) {
+	public void setRecordedTime(String recordedTime) {
 		this.recordedTime = recordedTime;
 	}
 
