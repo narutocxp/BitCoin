@@ -29,7 +29,7 @@ public class BitCoinPriceAction extends ActionSupport implements RequestAware {
 
 	private Map<String, Object> request;
 
-	@Action(value = "latestprice", results = { @Result(name = "success", location = "/bitcoinprice.jsp") })
+	@Action(value = "latestprice", results = { @Result(name = "success", location = "/WEB-INF/bitcoinprice.jsp") })
 	public String latestPrice() throws Exception {
 
 		String html = HttpTookit.doPost("https://vip.btcchina.com/", null,
