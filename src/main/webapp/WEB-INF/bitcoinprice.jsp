@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="common/base.jsp" %>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
@@ -60,6 +60,8 @@
        </c:forEach>
    </tbody>
 </table>
- <div style="text-align:center;font-size:28px;">上次更新在<b id="id_cnt_down"><script type="text/javascript">document.write(cntDown)</script></b>前</div>
+ <div style="text-align:center;font-size:28px;">上次更新在<b id="id_cnt_down"><script type="text/javascript">document.write
+
+(cntDown)</script></b>前</div>
 </body>
 </html>

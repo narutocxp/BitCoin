@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ include file="../common/base.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-<title>error</title>
+<title>Insert title here</title>
 <style type="text/css">
 .div {
 	margin-left: 10%;
@@ -50,21 +50,29 @@
 	margin-left: 10px;
 	margin-top: 10px;
 }
+@media ( max-width : 980px) {
+	/* Enable use of floated navbar text */
+	.navbar-text.pull-right {
+		float: none;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
 </style>
 </head>
 <body>
 	<div class="div">
-		<div class="div1 bg-info">
+		<div class="div1 bg-success">
 			<button type="button" class="close button">
 				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 			</button>
-			<p class="p lead">
-				ERROR!<br /> warning:注册失败，你输入的行已被占用！<a href="${path}/register.jsp">点击返回</a>
+			<p class="p  lead">
+				${info.state}<br />${info.prompt}<a href="${path}/${info.url}">${info.next}</a>
 			</p>
 		</div>
 		<div class="div2">
 			<center>
-				<img src="${path}/img/error.jpg" class="img" />
+				<img  src="${path}/img/${info.img}" class="img" />
 			</center>
 		</div>
 	</div>

@@ -48,7 +48,7 @@ function GetXmlHttpObject(){
          
           
           if(xmlHttp.responseText=='false'){
-        	  alert("验证码错误");
+        	  flag=false;
               return;
           }
           
@@ -66,14 +66,24 @@ function GetXmlHttpObject(){
  
  function canSubmit(){
 	 
-	 checkVcode();
-	  
-	  
-	 if(flag==false)
-		  return false;
-	 
-	 document.getElementById("password").value=hex_md5(document.getElementById("password").value);
-	 document.getElementById("confimPassword").value=hex_md5(document.getElementById("confimPassword").value);
+	 var pwd=document.getElementById("password");
+	 var cfmPwd=document.getElementById("confimPassword");
+	 if(pwd.value.trim()!=cfmPwd.value.trim()){
+		 
+		 alert("前后密码不一致");
+		 return false;
+		 
+		 
+	 }
+   
+	 if(flag==false){
+		
+		 alert("验证码错误");
+		 return false;
+     
+	 }
+	  pwd.value=hex_md5(pwd.value);
+	 cfmPwd.value=hex_md5(cfmPwd.value);
 	 return true;
 	 
  }

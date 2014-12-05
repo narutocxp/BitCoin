@@ -43,7 +43,7 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 	@Action(value="firstLogin",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp"),@Result(name="error",location="/WEB-INF/firstlogin.jsp")})
 	public String execute() throws Exception {
 		if(loginService.isCorrectVcoe(user.getUserMail(), user.getUserVerificationCode(),user.getUserName())){
-			m.put("USER_MAIL", user.getUserMail());
+			m.put("user", user);
 			return SUCCESS;
 		}
 		return ERROR;

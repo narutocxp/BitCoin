@@ -17,7 +17,9 @@ public class RegisterService {
 
 	@Autowired
 	private UserDao userDao;
-	
+	private static final int REGISTER_SUCCESS=1;
+	private static final int REGISTER_FAIL=0;
+	private static final int MAIL_ERROR=2;
 	
 	/**
 	 * 判断给定的邮箱是否能够注册
@@ -52,7 +54,7 @@ public class RegisterService {
 	 * @param user
 	 * @return
 	 */
-	public boolean isRegisterSuccess(User user){
+	public int isRegisterSuccess(User user){
 		if(canRegister(user.getUserMail())){  //用户可以正常注册
 			String vcode = VCodeUtils.Vcode(6);
 			Date now = new Date();
@@ -75,11 +77,11 @@ public class RegisterService {
 			StringBuffer mailContent = new StringBuffer();
 			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address);
 			
-			if(utils.sendMailUtis(toMail, mailSubject, mailContent.toString())) return true;
+			if(utils.sendMailUtis(toMail, mailSubject, mailContent.toString())) return REGISTER_SUCCESS;
 			else
-		       	return false;
+		       	return MAIL_ERROR;
 		}
 		
-		return false;
+		return REGISTER_FAIL;
 	}
 }

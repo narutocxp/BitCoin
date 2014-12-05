@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.bitcoin.model.User;
 import com.bitcoin.model.Wallet;
 import com.bitcoin.service.WalletService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -75,9 +76,9 @@ public class WalletAction extends ActionSupport implements RequestAware {
 	@Action(value = "add", results = { @Result(name = "success", location = "/WEB-INF/wallet.jsp") })
 	public String add() throws Exception {
 
-		String userMail = (String) m.get("USER_MAIL");
-		if (userMail != null)
-			walletService.add(userMail);
+		User  user =(User)m.get("user");
+		if (user != null)
+			walletService.add(user.getUserMail());
 
 		return loadAll();
 

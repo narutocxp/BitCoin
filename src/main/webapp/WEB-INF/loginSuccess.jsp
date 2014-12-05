@@ -1,23 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ include file="common/base.jsp"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<%@ include file="../header.jsp" %>
 <html lang="en">
 <head>
 <title>YUN - CloudCoin</title>
 <meta content="text/html;charset=utf-8" http-equiv="content-type">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-			<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
 
-				<!-- Le styles -->
-				<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-					<style type="text/css">
-body {
-	padding-top: 0px;
-	padding-bottom: 40px;
-}
+<!-- Le styles -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
 
 .sidebar-nav {
 	padding: 9px 0;
@@ -31,6 +26,11 @@ body {
 		padding-right: 5px;
 	}
 }
+.among{
+ 
+ padding-top:5px;
+ 
+}
 </style>
 <link href="bootstrap/css/bootstrap-responsive.css"
 	rel="stylesheet">
@@ -43,9 +43,6 @@ body {
 	href="${path}/bootstrap/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
 	href="${path}/bootstrap/ico/apple-touch-icon-57-precomposed.png">
-
-<script
-	src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
 var selected = 2;
 var addr = "";
@@ -69,15 +66,10 @@ function choose(s) {
 }
 
 function search() {
-
-	var key = document
-			.getElementById("addressKey").value;
+   
+	var key = document.getElementById("addressKey").value;
 	addr = key;
-	document
-			.getElementById("myFrame").src = "${path}/search?walletAddress="
-			+ key.trim()
-			+ "&selected="
-			+ selected;
+	document.getElementById("myFrame").src = "${path}/search?walletAddress="+ key.trim()+ "&selected="+ selected;
 
 }
 </script>
