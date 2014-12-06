@@ -65,6 +65,7 @@ public class CheckTimeService {
 				userDao.delete(u);
 			}
 		}
+		
 		logger.info("查看是否有超时未激活的用户");
 	}
 }
