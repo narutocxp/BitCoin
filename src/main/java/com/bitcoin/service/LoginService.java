@@ -35,7 +35,7 @@ public class LoginService {
 			return false;
 		
 		for(User u:users){
-			if(userMail.trim().equals(u.getUserMail())&&userPassword.trim().equals(u.getUserPassword())){
+			if(userMail.trim().equals(u.getUserMail())&&userPassword.trim().equals(u.getUserPassword())&&(null != u.getUserName())){
 				return true;
 			}
 		}
