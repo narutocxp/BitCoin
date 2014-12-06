@@ -48,8 +48,7 @@ var selected = 2;
 var addr = "";
 function setting(url) {
 
-	document
-			.getElementById("myFrame").src = url;
+	document.getElementById("myFrame").src = url;
 
 }
 
@@ -215,7 +214,9 @@ function findRecord(){
 			var amount = $("#amount").val();
 			var currentAmount = $("#currentAmount").val();
 		    var locked = $("#locked").val();
-            if(toAddress==""){
+           
+		    
+		    if(toAddress==""){
             	
             	alert("钱包地址不能为空，请看左边一栏");
             	return false;
@@ -238,12 +239,12 @@ function findRecord(){
 				$("amount").focus();
 				return false;
 			}
+			
 			if (isNaN(amount)) {
 				alert("请输入数字");
 				return false;
 
-			} else if (amount > currentAmount) {
-
+			} else if (parseFloat(amount)>parseFloat(currentAmount)) {
 				alert("转出的余额大于现有的余额");
 				return false;
 			} else

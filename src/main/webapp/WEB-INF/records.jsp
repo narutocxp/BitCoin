@@ -11,6 +11,9 @@
    
 <link rel="stylesheet"
 	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+	
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
    <script type="text/javascript" src="js/ajaxForVcode.js"></script>
    <script type="text/javascript" src="js/getmd5.js"></script>
@@ -24,13 +27,13 @@
 <p>我的交易列表</p>
 <form action="${path}/getFirstPage" method="post">
 类型
-<select name="pageModel.queryKey1" >
+<select name="pageModel.queryKey1" style="width: 100px; margin-left: 50px;">
 	<option value="1" <c:if test="${1 == queryKey1 }">selected="selected"</c:if> >全部</option>
 	<option value="2" <c:if test="${2 == queryKey1 }">selected="selected"</c:if> >汇入</option>
 	<option value="3" <c:if test="${3 == queryKey1 }">selected="selected"</c:if> >汇出</option>
 </select>
 状态
-<select name="pageModel.queryKey2" >
+<select name="pageModel.queryKey2" style="width: 100px; margin-left: 50px;">
 	<option value="1" <c:if test="${1 == queryKey2 }">selected="selected"</c:if> >全部</option>
 	<option value="2" <c:if test="${2 == queryKey2 }">selected="selected"</c:if> >等待</option>
 	<option value="3" <c:if test="${3 == queryKey2 }">selected="selected"</c:if> >完成</option>
