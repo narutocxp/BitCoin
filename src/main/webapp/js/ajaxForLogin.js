@@ -23,7 +23,6 @@ function GetXmlHttpObject(){
 }
  
   function checkVcode(){
-	  
 	  var tar=document.getElementById("vcode").value;
 	  xmlHttp=GetXmlHttpObject();
 		  if (xmlHttp==null)
@@ -48,7 +47,7 @@ function GetXmlHttpObject(){
          
           
           if(xmlHttp.responseText=='false'){
-        	 
+        	  alert("验证码错误");
               flag=false;
           }
           

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import com.bitcoin.model.User;
 import com.bitcoin.model.Wallet;
+import com.bitcoin.service.UserService;
 import com.bitcoin.service.WalletService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -32,6 +33,9 @@ public class WalletAction extends ActionSupport implements RequestAware {
 			.getSession();
 	@Autowired
 	private WalletService walletService;
+	@Autowired
+	private UserService userService;
+	
 	private String walletAddress;
 	private int selected;
 	private int page;
@@ -119,20 +123,21 @@ public class WalletAction extends ActionSupport implements RequestAware {
 
 		String sql = "";
 		int walletCnt = 0;
-		String contition = "";
+		User user=(User)m.get("user");
+		String contition = "where user_mail='"+user.getUserMail()+"'";
 		if (ALL == selected && (walletAddress == "" || walletAddress == null)) {
-			contition = "";
+			contition += " ";
 		} else if (ALL == selected
 				&& (walletAddress != "" || walletAddress != null)) {
-			contition = "where wallet_address like \'%" + walletAddress + "%\'";
+			contition += " and wallet_address like \'%" + walletAddress + "%\'";
 
 		} else if (walletAddress == "" || walletAddress == null) {
 
-			contition = "where wallet_locked=" + selected;
+			contition = " and wallet_locked=" + selected;
 
 		} else {
 
-			contition = "where wallet_address like \'%" + walletAddress
+			contition = " and wallet_address like \'%" + walletAddress
 					+ "%\' and " + "wallet_locked=" + selected;
 
 		}
@@ -144,9 +149,11 @@ public class WalletAction extends ActionSupport implements RequestAware {
 	}
 
 	public String loadAll() throws Exception {
-
-		String sql = "select wallet_address,wallet_amount,wallet_locked from(select wallet_address,user_mail,wallet_amount,wallet_locked,rownum m from t_wallet ) where m between ? and ?";
-		int walletCnt = walletService.getCount("select count(*) from t_wallet");
+        
+		User user=(User)m.get("user");
+		
+		String sql = "select wallet_address,wallet_amount,wallet_locked from(select wallet_address,user_mail,wallet_amount,wallet_locked,rownum m from t_wallet where user_mail='"+user.getUserMail()+"') where m between ? and ?";
+		int walletCnt = walletService.getCount("select count(*) from t_wallet  where user_mail='"+user.getUserMail()+"'");
 		return pagination(sql, walletCnt);
 
 	}

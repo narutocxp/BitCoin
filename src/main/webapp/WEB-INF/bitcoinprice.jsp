@@ -45,7 +45,7 @@
       <tr style="ext-align:center">
          <th></th>
          <th>当前兑换</th>
-         <th>24小时最高成交价/th>
+         <th>24小时最高成交价</th>
          <th>24小时最低成交价</th>
          <th>最新买入价</th>
          <th>最新卖出价</th>
@@ -60,8 +60,10 @@
        </c:forEach>
    </tbody>
 </table>
- <div style="text-align:center;font-size:28px;">上次更新在<b id="id_cnt_down"><script type="text/javascript">document.write
+ <div style="text-align:center;font-size:28px;">下次更新在<b id="id_cnt_down"><script type="text/javascript">document.write
 
-(cntDown)</script></b>前</div>
+(cntDown)</script></b>后 S  
+<button type="button" class="btn btn-primary" style="vertical-align: top; margin-left: 50px" onclick="history.go(-1)">返回</button>
+</div>
 </body>
 </html>

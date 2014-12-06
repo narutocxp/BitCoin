@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@ include file="common/base.jsp"%>
+<%@ include file="../header.jsp" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,37 +9,65 @@
    <title>交易记录</title>
    
 <link rel="stylesheet"
-	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	href="bootstrap/css/bootstrap.min.css">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	<style type="text/css">
-	
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-   <script type="text/javascript" src="js/ajaxForVcode.js"></script>
-   <script type="text/javascript" src="js/getmd5.js"></script>
+<script src="bootstrap/js/jquery.min.js"></script>
    <style type="text/css">
-     
+    .property{
+    
+      padding-top:20px;
+    
+    }
+     .property li{
+        display:inline;
+        font-size:20px;
+        width:30px;
+      }
    </style>
+ <script type="text/javascript">
+      function toWallet(){
+    	  
+    	  location.href="${path}/returnAccount";
+    	  
+      }
+ 
+ </script>
 </head>
 <body>
 <div class="container">
 <h2>My Transactions List</h2>
-<p>我的交易列表</p>
+<p style="font-size:23px">我的交易列表</p>
 <form action="${path}/getFirstPage" method="post">
-类型
-<select name="pageModel.queryKey1" style="width: 100px; margin-left: 50px;">
+<ul class="property">
+<li>类型</li>
+<li>
+<select name="pageModel.queryKey1" style="width: 100px;margin-left:20px;">
 	<option value="1" <c:if test="${1 == queryKey1 }">selected="selected"</c:if> >全部</option>
 	<option value="2" <c:if test="${2 == queryKey1 }">selected="selected"</c:if> >汇入</option>
 	<option value="3" <c:if test="${3 == queryKey1 }">selected="selected"</c:if> >汇出</option>
 </select>
-状态
-<select name="pageModel.queryKey2" style="width: 100px; margin-left: 50px;">
+</li>
+<li>
+<span style="margin-left:30px">状态</span>
+</li>
+<li>
+<select name="pageModel.queryKey2" style="width: 100px;margin-left:20px;">
 	<option value="1" <c:if test="${1 == queryKey2 }">selected="selected"</c:if> >全部</option>
 	<option value="2" <c:if test="${2 == queryKey2 }">selected="selected"</c:if> >等待</option>
 	<option value="3" <c:if test="${3 == queryKey2 }">selected="selected"</c:if> >完成</option>
 	<option value="4" <c:if test="${4 == queryKey2 }">selected="selected"</c:if> >失败</option>
 </select>
-<input type="submit" value="查询"/>
+</li>
+<li>
+<button id="smt" class="btn btn-primary" id="login-continue"
+						style="vertical-align: top; margin-left: 50px">查询</button>
+</li>
+<li>
+<button type="button" class="btn btn-primary" style="vertical-align: top; margin-left: 50px" onclick="toWallet()">返回转账页面</button>
+</li>
+</ul>
 </form>
+   <div style="height:230px;">
 	<table class="table table-hover">
 		<tr>
 			<td>汇入/汇出地址</td>
@@ -62,10 +89,8 @@
 		
 	
 	</table>
-	
+   </div>
 	<a href="${path}/getBeforePage?pageModel.currentPage=${page.currentPage }&pageModel.queryKey1=${queryKey1}&pageModel.queryKey2=${queryKey2}">上一页</a>|当前第${page.currentPage }页|共${page.totalPage }页|<a href="${path}/getAfterPage?pageModel.currentPage=${page.currentPage }&pageModel.queryKey1=${queryKey1}&pageModel.queryKey2=${queryKey2}">下一页</a>
-	
-	<a href="${path}/returnAccount">返回转账页面</a>
 </div>
 </body>
 </html>

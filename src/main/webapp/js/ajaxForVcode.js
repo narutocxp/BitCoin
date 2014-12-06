@@ -49,6 +49,7 @@ function GetXmlHttpObject(){
           
           if(xmlHttp.responseText=='false'){
         	  flag=false;
+        	  alert("验证码错误");
               return;
           }
           
@@ -77,7 +78,6 @@ function GetXmlHttpObject(){
 	 }
    
 	 if(flag==false){
-		
 		 alert("验证码错误");
 		 return false;
      

@@ -8,8 +8,8 @@
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <meta content="text/html;charset=utf-8" http-equiv="content-type">
 <link rel="stylesheet"
-	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	href="bootstrap/css/bootstrap.min.css">
+<script src="bootstrap/js/jquery.min.js"></script>
 <script type="text/javascript">
     
     var addr;
@@ -89,7 +89,7 @@
 		</tbody>
 	</table>
 	</div>
-	 <c:if test="${curPage>0}"><a href="${path}/wallet?page=${curPage-1}">上一页</a></c:if>|当前第${curPage}页|共${totalPage}页|
+	 <c:if test="${curPage>0}"><a href="${path}/wallet?page=${curPage-1}">上一页</a></c:if>|当前第${curPage+1}页|共${totalPage}页|
      <c:if test="${curPage<totalPage-1}"><a href="${path}/wallet?page=${curPage+1}">下一页</a></c:if> 
 </body>
 </html>
