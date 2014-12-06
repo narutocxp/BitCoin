@@ -78,6 +78,7 @@ public class RecordAction extends ActionSupport implements ModelDriven<PageModel
 	@Action(value="createRecord",results={@Result(name="success",location="/WEB-INF/loginSuccess.jsp")})
 	public String createRecord(){
 		recordService.createRecord(address, toAddress, amount);
+		request.put("tip", "操作完成，请及时查看交易记录");
 		return SUCCESS;
 	}
 	

@@ -57,8 +57,13 @@ public class TransferAccountService {
 			List<Wallet> wallets = walletDao.find(hql2, address);
 			Wallet wallet = wallets.get(0);
 			
+			//获取汇入的账户
+			String toAddress = recored.getWalletImport();
+			String hql4 = "from Wallet where walletAddress = ?";
+			List<Wallet> wallets3 = walletDao.find(hql4, toAddress);
+			
 			//汇款失败
-			if(0.0 > wallet.getWalletAmount()){
+			if(0 == wallets3.size()){    //汇入账户不存在
 				logger.info(recored.getWalletRemit()+"向"+recored.getWalletImport()+"转账失败");
 				//将钱退还汇出账户
 				wallet.setWalletAmount(wallet.getWalletAmount()+recored.getRecordedAmount());
