@@ -31,6 +31,10 @@
  padding-top:5px;
  
 }
+#address,#currentAmount,#locked,#toAddress,#userName,#amount{
+
+   height:30px;
+}
 </style>
 <link href="bootstrap/css/bootstrap-responsive.css"
 	rel="stylesheet">

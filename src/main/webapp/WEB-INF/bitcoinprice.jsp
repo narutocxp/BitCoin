@@ -62,7 +62,7 @@
 </table>
  <div style="text-align:center;font-size:28px;">下次更新在<b id="id_cnt_down"><script type="text/javascript">document.write
 
-(cntDown)</script></b>后 S  
+(cntDown)</script></b>S后   
 <button type="button" class="btn btn-primary" style="vertical-align: top; margin-left: 50px" onclick="history.go(-1)">返回</button>
 </div>
 </body>
