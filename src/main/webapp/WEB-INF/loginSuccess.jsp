@@ -83,8 +83,8 @@ function findRecord(){
 }
 </script>
 </head>
-
 <body>
+  <script type="text/javascript">alert(tip)</script>
 	<div class="quickstart">
 		<div class="container">
 			<div class="row-fluid">
@@ -254,6 +254,14 @@ function findRecord(){
 			} else
 				return true;
 		}
-	</script>
+	</script>    
+	<%
+   
+   String tip=(String)request.getAttribute("tip");
+   if(tip!=null){
+	   out.print("<script type='text/javascript'>alert('"+tip+"')</script>");
+   }
+
+   %>
 </body>
 </html>
