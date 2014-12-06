@@ -48,7 +48,7 @@ function GetXmlHttpObject(){
          
           
           if(xmlHttp.responseText=='false'){
-        	  alert("验证码错误");
+        	 
               flag=false;
           }
           
@@ -65,13 +65,13 @@ function GetXmlHttpObject(){
  }
  
  function canSubmit(){
-	 
-	 checkVcode();
-	  
-	  
-	 if(flag==false)
-		  return false;
-	 
+		  
+	 if(flag==false){
+		 
+		 alert("验证码错误");
+		 return false;
+	     
+	 }
 	 document.getElementById("inputPassWord").value=hex_md5(document.getElementById("inputPassWord").value);
 	 return true;
 	 

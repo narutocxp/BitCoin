@@ -36,8 +36,7 @@ public class CheckWalletAddressServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
-		String userMail = (String) session.getAttribute("USER_MAIL");
-		User user = userService.get(userMail);
+		User user = (User) session.getAttribute("user");
 		if (walletService.isExistWalletAddress(toAddress))
 			out.print(user.getUserName());
 		else

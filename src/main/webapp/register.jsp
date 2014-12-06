@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -63,7 +64,9 @@
       <label for="firstname" class="col-sm-2 control-label"><p class="text-muted">
 Email:</p></label>
       <div class="col-sm-10">
-         <input type="text" class="form-control" id="firstname" name="user.userMail" required pattern="^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$" title="邮箱正确格式：xxx@xxx.xxx">  
+         <input type="text" class="form-control" id="firstname" name="user.userMail" required pattern="^\w+((-\w+)|(\.\w+))*\@[A-
+
+Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$" title="邮箱正确格式：xxx@xxx.xxx">  
       </div>
    </div>
    <div class="form-group">
@@ -76,13 +79,17 @@ Email:</p></label>
    <div class="form-group">
       <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Password:</p></label>
       <div class="col-sm-10">
-         <input type="password" class="form-control" id="password" name="user.userPassword" required pattern="^[A-Za-z]{1}[a-zA-Z0-9.]{7,15}$" title="密码为8-16为，以字母开头,只能包含数字，字母及小数点" >
+         <input type="password" class="form-control" id="password" name="user.userPassword" required pattern="^[A-Za-z]{1}[a-zA-Z0
+
+-9.]{7,15}$" title="密码为8-16为，以字母开头,只能包含数字，字母及小数点" >
       </div>
    </div>
    <div class="form-group">
       <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Confirm Password:</p></label>
       <div class="col-sm-10">
-         <input type="password" class="form-control" id="confimPassword" required  pattern="^[A-Za-z]{1}[a-zA-Z0-9.]{7,15}$" title="密码为8-16为，以字母开头,只能包含数字，字母及小数点">
+         <input type="password" class="form-control" id="confimPassword" required  pattern="^[A-Za-z]{1}[a-zA-Z0-9.]{7,15}$" 
+
+title="密码为8-16为，以字母开头,只能包含数字，字母及小数点">
       </div>
    </div>
    <div class="form-group">
@@ -95,7 +102,7 @@ Email:</p></label>
    <div class="form-group">
       <label for="firstname" class="col-sm-2 control-label"><p class="text-muted">Captcha:</p></label>
       <div class="col-sm-10">
-         <input type="text" class="form-control" id="vcode"  required >
+         <input type="text" class="form-control" id="vcode"  onblur="checkVcode()" required>
       </div>
    </div>
    
@@ -120,3 +127,4 @@ Email:</p></label>
 
 </body>
 </html>
+ 

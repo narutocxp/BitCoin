@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="common/base.jsp" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -66,7 +66,7 @@
    <div class="form-group">
 	    <label for="inputVcode" class="col-sm-2 control-label col-sm-offset-1">Captcha </label>
 	    <div class="col-sm-3">
-	      <input type="text" class="form-control" id="vcode" placeholder="enter the captcha"  required >
+	      <input type="text" class="form-control" id="vcode" placeholder="enter the captcha" onblur="checkVcode()" required >
 	    </div>
  	</div>
  	<br />
