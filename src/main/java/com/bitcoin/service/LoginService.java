@@ -92,7 +92,10 @@ public class LoginService {
 	public boolean isFirstTimeActivate(String email){
 		String hql = "from User where userMail = ?";
 		List<User> users = userDao.find(hql, email);
-		System.out.println(users.size());
+		
+		if(0 == users.size())
+			return false;
+		
 		if(null == users.get(0).getUserName())
 			return true;
 		

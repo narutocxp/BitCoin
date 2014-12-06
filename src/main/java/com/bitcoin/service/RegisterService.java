@@ -62,7 +62,7 @@ public class RegisterService {
 			String registerTime = sdf.format(now);
 			user.setUserRegisterTime(registerTime);
 			user.setUserVerificationCode(vcode);
-			this.saveUser(user);    //保存用户信息
+			
 			
 			//发送邮件到注册邮箱
 			MailUtils utils = new MailUtils();
@@ -77,7 +77,10 @@ public class RegisterService {
 			StringBuffer mailContent = new StringBuffer();
 			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address);
 			
-			if(utils.sendMailUtis(toMail, mailSubject, mailContent.toString())) return REGISTER_SUCCESS;
+			if(utils.sendMailUtis(toMail, mailSubject, mailContent.toString())){
+				this.saveUser(user);    //保存用户信息
+				return REGISTER_SUCCESS;
+			}
 			else
 		       	return MAIL_ERROR;
 		}
