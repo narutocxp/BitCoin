@@ -1,5 +1,7 @@
 package com.bitcoin.dao.test;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +19,7 @@ public class UserDaoTest {
 	 private UserDao userDao;  
 	
 	@Test
-	public void test() {
+	public void testGetCount() {
 		 
 		int currentCount=userDao.getCount("from User");
 		User  user=new User();
@@ -29,5 +31,37 @@ public class UserDaoTest {
 		Assert.assertTrue(currentCount+1==nowCount);
 		
 	}
+	
+	@Test
+	public void testFind(){
+		
+		String hql = "from User where userMail=?";
+		List<User> users = userDao.find(hql,"240775261@qq.com");
+		if(null == users.get(0).getUserName())
+			 Assert.assertTrue(false);
+		else
+			Assert.assertTrue(true);
+		
+		
+		
+	}
+	
+	@Test
+	public void testLoadAll(){
+		
+		
+		int currentCount=userDao.getCount("from User");
+		List<User> users=userDao.loadAll();
+		
+		Assert.assertTrue(currentCount==users.size());
+		
+		
+		
+		
+	}
+	
+	
+	
+	
 
 }

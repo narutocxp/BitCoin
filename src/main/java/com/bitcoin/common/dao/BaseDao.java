@@ -167,22 +167,6 @@ public class BaseDao<T, PK extends Serializable> {
 		}
 		hibernateTemplate.saveOrUpdate(entity);
 	}
-
-	/**
-	 * 
-	 * @param entity
-	 */
-	public void merge(T entity) {
-		Assert.notNull(entity);
-
-		if (logger.isDebugEnabled()) {
-			logger.debug("merge entity[" + entity.toString()
-					+ "], entityClass[" + entityClass + "], " + "information["
-					+ ToStringBuilder.reflectionToString(entity) + "]");
-		}
-		hibernateTemplate.merge(entity);
-	}
-
 	/**
 	 * 执行带参的HQL查询
 	 * 
@@ -205,21 +189,7 @@ public class BaseDao<T, PK extends Serializable> {
 		return lst;
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<T> find(final String hql, final int offset,final int max) {
-		List<T> result = (List<T>) hibernateTemplate.execute(new HibernateCallback<Object>() {
-			public Object doInHibernate(Session session) throws HibernateException,
-					SQLException {
-				Query query = session.createQuery(hql);
-				query.setFirstResult(offset);
-				query.setMaxResults(max);
-				List<T> list = query.list();
-				return list;
-			}
-			});
-		return result;
-	}
-
+	 
 	/**
 	 * 取总记录数
 	 * 
@@ -230,94 +200,6 @@ public class BaseDao<T, PK extends Serializable> {
 		Integer count = (Integer) hibernateTemplate.find(hql).size();
 		return count.intValue();
 	}
-
-	public Object getCount(final String where, final Object... values) {
-		@SuppressWarnings("unchecked")
-		Object result = hibernateTemplate.execute(new HibernateCallback<T>() {
-			public T doInHibernate(Session session) throws HibernateException,
-					SQLException {
-				Query query = session.createQuery(where);
-				if (values != null) {
-					int i = 0;
-					for (Object value : values) {
-						if (value.equals(""))
-							continue;
-						query.setParameter(i, value);
-						i++;
-					}
-				}
-				return (T) query.uniqueResult();
-			}
-		});
-		return result;
-	}
-
-	/**
-	 * 对延迟加载的实体PO执行初始化
-	 * 
-	 * @param entity
-	 */
-	public void initialize(Object entity) {
-		Assert.notNull(entity);
-		hibernateTemplate.initialize(entity);
-	}
-
-	/**
-	 * 刷新session缓存, 将缓存同步数据库
-	 */
-	public void flush() {
-		hibernateTemplate.flush();
-	}
-
-	/**
-	 * 执行count查询获得本次Hql查询所能获得的对象总数. 本函数只能自动处理简单的hql语句,复杂的hql, 如含有多个order by
-	 * 排序功能, 为了提高查询效率, 请另行传入countHql语句.
-	 * 
-	 * @param hql
-	 * @param countHql
-	 *            计数SQL
-	 * @param params
-	 *            查询传入参数
-	 * @return
-	 */
-	protected long countSqlResult(String Sql, String countSql, Object... params) {
-		Assert.hasText(Sql);
-		String countSqlTmp = countSql;
-
-		if (StringUtils.isBlank(countSql)) {
-			countSqlTmp = Sql;
-
-			// 以select开头查询
-			if (countSqlTmp.toLowerCase().trim().startsWith("select")) {
-				countSqlTmp = " select count(*) from ( " + countSqlTmp + " )";
-			} else {
-				countSqlTmp = " from "
-						+ StringUtils.substringAfter(countSqlTmp, "from");
-				countSqlTmp = " select count(*) " + countSqlTmp;
-			}
-		}
-
-		Long count = jdbcTemplate.queryForLong(countSqlTmp, params);
-
-		if (count == null) {
-			return 0;
-		} else {
-			return count.longValue();
-		}
-	}
-
-	/**
-	 * 从当前线程获取session, 如果没有, 则新建一个 包中都可见，而且其子类也能访问 注:使用时, 请判断获取的session是否属于当前事务,
-	 * 如果取得的session不在事务上下文中, 需要手动release session
-	 * 
-	 * @return
-	 */
-	@SuppressWarnings("unused")
-	private Session getSession() {
-		return SessionFactoryUtils.getSession(
-				hibernateTemplate.getSessionFactory(), true);
-	}
-
 	protected HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
 	}
