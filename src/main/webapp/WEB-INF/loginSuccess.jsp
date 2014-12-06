@@ -72,6 +72,12 @@ function search() {
 	document.getElementById("myFrame").src = "${path}/search?walletAddress="+ key.trim()+ "&selected="+ selected;
 
 }
+
+function findRecord(){
+	
+	 location.href="${path}/getFirstPage?pageModel.queryKey1=1&pageModel.queryKey2=1";
+	
+}
 </script>
 </head>
 
@@ -108,7 +114,7 @@ function search() {
 			</div>
 			<div>
 				<input type="text" class="form-control" id="addressKey"
-					placeholder="输入Address模糊查询" style="width: 200px">&nbsp;&nbsp;
+					placeholder="输入Address模糊查询" style="width: 200px;height:30px">&nbsp;&nbsp;
 					<select style="width: 100px; margin-left: 50px;"
 					onchange="choose(this.options[selectedIndex].text)">
 						<option>All</option>
@@ -124,7 +130,9 @@ function search() {
 		<div class="span5">
 			<div class="page-header">
 				<p align="right">
-					<a class="btn btn-small btn-secondary recover-wallet-btn"
+				 <a class="btn btn-small btn-secondary recover-wallet-btn"
+						id="btnFindRecord" onclick="findRecord()">查看交易记录</a>
+				 <a class="btn btn-small btn-secondary recover-wallet-btn"
 						id="btnAdd" onclick="setting('${path}/add')">新建钱包</a>
 				</p>
 			</div>
@@ -177,13 +185,6 @@ function search() {
 					<div class="form-actions">
 						<button id="smt" class="btn btn-primary" id="login-continue">转出云币</button>
 					</div>
-					
-				</form>
-				<form action="getFirstPage" method="post">
-				   <input type="hidden" name="pageModel.queryKey1" value="1"/>
-				   <input type="hidden" name="pageModel.queryKey2" value="1"/>
-				   
-				   <input type="submit" value="查看交易记录"/>
 				</form>
 			</div>
 		</div>
