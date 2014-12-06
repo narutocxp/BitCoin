@@ -2,6 +2,7 @@ package com.bitcoin.service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import com.bitcoin.model.TransactionRecord;
 import com.bitcoin.model.Wallet;
 import com.bitcoin.page.PageModel;
 import com.bitcoin.page.PageResult;
+import com.bitcoin.utils.RecordComparator;
 
 
 @Service
@@ -78,6 +80,8 @@ public class RecordService {
 	public PageModel getFirstPage(int queryKey1, int queryKey2){
 		PageModel pageModel = new PageModel();
 		List<PageResult> pageResults = getTransaction(queryKey1, queryKey2);
+		RecordComparator comp = new RecordComparator();
+		Collections.sort(pageResults,comp);
 		pageModel.setCurrentPage(1);
 		pageModel.setQueryKey1(queryKey1);
 		pageModel.setQueryKey2(queryKey2);
@@ -115,6 +119,8 @@ public class RecordService {
 	public PageModel getBeforePage(int currentPage, int queryKey1, int queryKey2){
 		PageModel pageModel = new PageModel();
 		List<PageResult> pageResults = getTransaction(queryKey1, queryKey2);
+		RecordComparator comp = new RecordComparator();
+		Collections.sort(pageResults,comp);
 		pageModel.setQueryKey1(queryKey1);
 		pageModel.setQueryKey2(queryKey2);
 		pageModel.setTotalPage(getTotalPage(pageResults.size()));
@@ -174,6 +180,8 @@ public class RecordService {
 	public PageModel getAfterPage(int currentPage,int queryKey1, int queryKey2){
 		PageModel pageModel = new PageModel();
 		List<PageResult> pageResults = getTransaction(queryKey1, queryKey2);
+		RecordComparator comp = new RecordComparator();
+		Collections.sort(pageResults,comp);
 		pageModel.setQueryKey1(queryKey1);
 		pageModel.setQueryKey2(queryKey2);
 		pageModel.setTotalPage(getTotalPage(pageResults.size()));
