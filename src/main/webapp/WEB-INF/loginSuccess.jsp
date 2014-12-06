@@ -130,7 +130,7 @@ function search() {
 			</div>
 
 			<div class="form-horizontal">
-				<form id="frm" method="post" action="${path}/payto"
+				<form id="frm" method="post" action="${path}/createRecord"
 					onsubmit="return check();">
 					<div class="control-group">
 						<label class="control-label">钱包地址:</label>
@@ -177,6 +177,13 @@ function search() {
 					<div class="form-actions">
 						<button id="smt" class="btn btn-primary" id="login-continue">转出云币</button>
 					</div>
+					
+				</form>
+				<form action="getFirstPage" method="post">
+				   <input type="hidden" name="pageModel.queryKey1" value="1"/>
+				   <input type="hidden" name="pageModel.queryKey2" value="1"/>
+				   
+				   <input type="submit" value="查看交易记录"/>
 				</form>
 			</div>
 		</div>
