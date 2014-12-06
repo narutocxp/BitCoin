@@ -49,6 +49,12 @@ public class RecordService {
 	 */
 
 	public void createRecord(String formAddress, String toAddress, double amount){
+		
+		String hql2 = "from Wallet where walletAddress=?";
+		Wallet w2 = walletDao.find(hql2, formAddress).get(0);
+		w2.setWalletAmount(w2.getWalletAmount() - amount);    //对汇出方进行扣款
+		walletDao.update(w2);
+		
 		TransactionRecord record = new TransactionRecord();
 		record.setRecorded_is_finish(0);
 		record.setRecorded_is_success(0);
