@@ -10,9 +10,6 @@
 <link rel="stylesheet"
 	href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-   <script type="text/javascript" src="js/ajaxForLogin.js"></script>
-   <script type="text/javascript" src="js/getmd5.js"></script>
-   
    
 </head>
 <body>
@@ -32,12 +29,20 @@
  	</div>
  	<br />
  	<div class="form-group">
-      <div class="col-sm-offset-5 col-sm-5">
+      <div class="col-sm-offset-3 col-sm-5">
+        <button type="button" class="btn btn-primary" onclick="history.go(-1)">返回</button>
         <button type="submit" class="btn btn-primary" >确定</button>
       </div>
    </div>
 </div>
 </form>
+<%
+   
+   String hist=(String)request.getAttribute("hist");
+   if(hist!=null){
+	   out.print("<script type='text/javascript'>alert('"+hist+"')</script>");
+   }
 
+   %>
 </body>
 </html>

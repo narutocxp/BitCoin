@@ -59,7 +59,7 @@
             <img id="id_verify_img" src="img/vcode.jpg" alt="加载中..." onclick="this.src='img/vcode.jpg?'+ new Date().getTime()"/>
          </div>
       </div>
-      <button type="button" class="btn btn-default col-md-1 col-sm-offset-2 button" ><small>Recover Wallet</small></button>
+      <button type="button" class="btn btn-default col-md-1 col-sm-offset-2 button" onclick="location.href='resetpassword.jsp'"><small>找回密码</small></button>
       <button type="button" class="btn btn-default col-md-1 button" onclick="window.location.href='register.jsp'"><small>注册新钱包</small></button>
    </div>
    
@@ -77,6 +77,13 @@
    </div>
 </div>
 </form>
+<%
+   
+   String hist=(String)request.getAttribute("hist");
+   if(hist!=null){
+	   out.print("<script type='text/javascript'>alert('"+hist+"')</script>");
+   }
 
+   %>
 </body>
 </html>

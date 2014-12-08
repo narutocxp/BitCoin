@@ -69,7 +69,7 @@ function GetXmlHttpObject(){
 	 
 	 var pwd=document.getElementById("password");
 	 var cfmPwd=document.getElementById("confimPassword");
-	 if(pwd.value.trim()!=cfmPwd.value.trim()){
+	 if(pwd.value!=cfmPwd.value){
 		 
 		 alert("前后密码不一致");
 		 return false;
