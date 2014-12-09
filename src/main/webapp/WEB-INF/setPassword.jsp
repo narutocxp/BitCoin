@@ -39,7 +39,7 @@
 
 <form class="form-horizontal" role="form" method="post" action="resetPassword"  onsubmit="return canSubmit()">
  <div class="form-group">
-      <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">Password:</p></label>
+      <label for="lastname" class="col-sm-2 control-label"><p class="text-muted">New Password:</p></label>
       <div class="col-sm-3">
          <input type="password" class="form-control" id="password" name="newPassword" required pattern="^[A-Za-z]{1}[a-zA-Z0
 
