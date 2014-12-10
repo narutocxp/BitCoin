@@ -1,4 +1,5 @@
 package com.bitcoin.model;
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -7,9 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="t_user")
+@Table(name = "t_user")
 public class User {
 
 	private String userMail;
@@ -20,7 +20,7 @@ public class User {
 	private Set<Wallet> wallets;
 
 	@Id
-	@Column(name="user_mail",length=20,nullable=false)
+	@Column(name = "user_mail", length = 20, nullable = false)
 	public String getUserMail() {
 		return userMail;
 	}
@@ -29,7 +29,7 @@ public class User {
 		this.userMail = userMail;
 	}
 
-	@Column(name="user_password",length=32,nullable=false)
+	@Column(name = "user_password", length = 32, nullable = false)
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -38,7 +38,7 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	@Column(name="user_name",length=20)
+	@Column(name = "user_name", length = 20)
 	public String getUserName() {
 		return userName;
 	}
@@ -47,8 +47,7 @@ public class User {
 		this.userName = userName;
 	}
 
-	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	public Set<Wallet> getWallets() {
 		return wallets;
 	}
@@ -56,7 +55,8 @@ public class User {
 	public void setWallets(Set<Wallet> wallets) {
 		this.wallets = wallets;
 	}
-    @Column(name="register_time",length=20,nullable=false)
+
+	@Column(name = "register_time", length = 20, nullable = false)
 	public String getUserRegisterTime() {
 		return userRegisterTime;
 	}
@@ -65,7 +65,7 @@ public class User {
 		this.userRegisterTime = userRegisterTime;
 	}
 
-	@Column(name="verification_code",length=14,nullable=false)
+	@Column(name = "verification_code", length = 14, nullable = false)
 	public String getUserVerificationCode() {
 		return userVerificationCode;
 	}
@@ -73,8 +73,5 @@ public class User {
 	public void setUserVerificationCode(String userVerificationCode) {
 		this.userVerificationCode = userVerificationCode;
 	}
-
-	 
-	
 
 }
