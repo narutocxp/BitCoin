@@ -50,9 +50,8 @@ function GetXmlHttpObject(){
         	  alert("验证码错误");
               flag=false;
           }
-          
-        	 
-          flag=true;
+          else
+        	  flag=true;
            
      
     
