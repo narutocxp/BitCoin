@@ -62,44 +62,6 @@ public class WalletService {
 		return walletDao.get(walletAddress);
 	}
 
-
-	public List<Wallet> search(String sql,String keyAddress, int selected) {
-
-		List<Wallet> listWallets = loadAll();
-		List<Wallet> findWallets = new ArrayList<Wallet>();
-
-		if (selected == ALL)
-			findWallets = loadAll();
-
-		else if (keyAddress == "") {
-
-			for (Wallet wallet : listWallets) {
-				if (wallet != null)
-					if (wallet.getWalletLocked() == selected)
-						findWallets.add(wallet);
-
-			}
-
-		} else {
-
-			for (Wallet wallet : listWallets) {
-				if (wallet != null)
-					if (wallet.getWalletAddress().indexOf(keyAddress) != -1
-							&& wallet.getWalletLocked() == selected)
-						findWallets.add(wallet);
-
-			}
-
-		}
-
-		return findWallets;
-
-	}
-	
-	
-	
-	
-	
 	@SuppressWarnings("rawtypes")
 	public List<Wallet> getWalletListByLimit(String sql,int from,int amount){
 		      

@@ -133,11 +133,11 @@ public class WalletAction extends ActionSupport implements RequestAware {
 
 		} else if (walletAddress == "" || walletAddress == null) {
 
-			contition = " and wallet_locked=" + selected;
+			contition += " and wallet_locked=" + selected;
 
 		} else {
 
-			contition = " and wallet_address like \'%" + walletAddress
+			contition += " and wallet_address like \'%" + walletAddress
 					+ "%\' and " + "wallet_locked=" + selected;
 
 		}
