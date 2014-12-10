@@ -75,7 +75,7 @@ public class TransactionRecord {
 		this.recordedAmount = recordedAmount;
 	}
 
-	@Column(name="recorded_time",nullable=false)
+	@Column(name="recorded_time",length=20,nullable=false)
 	public String getRecordedTime() {
 		return recordedTime;
 	}

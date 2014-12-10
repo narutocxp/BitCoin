@@ -56,7 +56,7 @@ public class User {
 	public void setWallets(Set<Wallet> wallets) {
 		this.wallets = wallets;
 	}
-    @Column(name="register_time",length=20)
+    @Column(name="register_time",length=20,nullable=false)
 	public String getUserRegisterTime() {
 		return userRegisterTime;
 	}
@@ -65,7 +65,7 @@ public class User {
 		this.userRegisterTime = userRegisterTime;
 	}
 
-	@Column(name="verification_code",length=14)
+	@Column(name="verification_code",length=14,nullable=false)
 	public String getUserVerificationCode() {
 		return userVerificationCode;
 	}
