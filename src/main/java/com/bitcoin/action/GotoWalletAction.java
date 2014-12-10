@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")

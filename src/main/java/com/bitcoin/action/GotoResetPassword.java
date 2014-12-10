@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")
@@ -19,22 +18,17 @@ public class GotoResetPassword extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private String mail;
 	
-	
 	public String getMail() {
 		return mail;
 	}
-
 
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
 
-
-
 	@Action(value="gotoResetPassword",results={@Result(name="success",location="/WEB-INF/setPassword.jsp")})
 	public String gotoResetPassword (){
 		return SUCCESS;
-		
 	}
 
 }

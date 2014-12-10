@@ -41,11 +41,6 @@ public class WalletDaoTest {
 	   int nowCount=walletDao.getCount("from Wallet");
 	   Assert.assertTrue(currentCount+1==nowCount);
 	   
-	   
-	   
-	   
-		
-		
 	}
 
 }

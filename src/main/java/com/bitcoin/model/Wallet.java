@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="t_wallet")
 public class Wallet {
@@ -78,7 +77,5 @@ public class Wallet {
 	public void setTransactionRecord(Set<TransactionRecord> transactionRecord) {
 		this.transactionRecord = transactionRecord;
 	}
-   
- 
 
 }

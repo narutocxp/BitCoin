@@ -25,6 +25,7 @@ import com.opensymphony.xwork2.ModelDriven;
 @Namespace(value="/*")
 public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 
+	private static final long serialVersionUID = 1L;
 	private User user;
 	@Autowired
 	private RegisterService registerService;
@@ -41,21 +42,22 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 	public User getModel() {
 		return user;
 	}
+	
 	@Action(value="register",results={@Result(name="success",location="/WEB-INF/information.jsp"),@Result(name="error",location="/WEB-INF/information.jsp")})
 	public String register() throws Exception{
 		 
 		Map<String,Object> info=new HashMap<String,Object>();
 	    int state=registerService.isRegisterSuccess(user);
-		 if(state==1){
-			 info.put("state", "SUCCESS!");
-			 info.put("prompt", "注册成功，您必须在5天内到你的邮箱验证，否则帐号将失效!");
+		if(state==1){
+		     info.put("state", "SUCCESS!");
+			 info.put("prompt", "注册成功，您必须在5分钟内到你的邮箱验证，否则帐号将失效!");
 			 info.put("url", "registerlogin");
 			 info.put("next", "立即登录");
 			 info.put("img", "success.jpg");
 			 request.setAttribute("info", info);
 			 return SUCCESS;
 		 
-		 }else if(state==0){
+		}else if(state==0){
 			 info.put("state", "ERROR!");
 			 info.put("prompt", "warning:注册失败，你输入的行已被占用！");
 			 info.put("url", "register.jsp");
@@ -65,10 +67,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 			 
 			 return ERROR;
 			 
-			 
-			  
-		
-		 }else{
+		}else{
 			 
 			 info.put("state", "ERROR!");
 			 info.put("prompt", "warning:注册失败，你输入的邮箱不存在");
@@ -78,7 +77,6 @@ public class RegisterAction extends ActionSupport implements ModelDriven<User> {
 			 request.setAttribute("info", info);
 			 
 			 return ERROR;
-			 
 		 }
 	}
 

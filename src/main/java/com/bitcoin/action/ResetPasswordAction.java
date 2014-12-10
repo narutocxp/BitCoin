@@ -19,7 +19,6 @@ import com.opensymphony.xwork2.ActionSupport;
 @ParentPackage("struts-default")
 @Namespace(value = "/*")
 public class ResetPasswordAction extends ActionSupport implements RequestAware{
-
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -30,7 +29,6 @@ public class ResetPasswordAction extends ActionSupport implements RequestAware{
 	@Autowired
 	private ResetPasswordService resetPasswordService;
 
-	
 	public String getNewPassword() {
 		return newPassword;
 	}

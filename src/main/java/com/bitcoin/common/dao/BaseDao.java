@@ -2,22 +2,15 @@ package com.bitcoin.common.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.util.Assert;
 
 /**
@@ -216,16 +209,13 @@ public class BaseDao<T, PK extends Serializable> {
 
 	
 	public List<Map<String,Object>> getTListWithLimit(String sql,int from,int amount){
-		
 		 List<Map<String,Object>> maps=(List<Map<String,Object>>)getJdbcTemplate().queryForList(sql,new Object[]{from,from+amount});
-		  
 		 
 		 return maps;
 		
 	}
 	
 	public int getTCount(String sql){
-		
 		return  jdbcTemplate.queryForInt(sql);
 		
 	}

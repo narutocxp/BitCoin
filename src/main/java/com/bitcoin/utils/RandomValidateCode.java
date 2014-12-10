@@ -21,12 +21,14 @@ public class RandomValidateCode {
     private int height = 26;//图片高
     private int lineSize = 40;//干扰线数量
     private int stringNum = 4;//随机产生字符数量
+    
     /*
      * 获得字体
      */
     private Font getFont(){
         return new Font("Fixedsys",Font.CENTER_BASELINE,18);
     }
+    
     /*
      * 获得颜色
      */
@@ -40,6 +42,7 @@ public class RandomValidateCode {
         int b = fc + random.nextInt(bc-fc-18);
         return new Color(r,g,b);
     }
+    
     /**
      * 生成随机图片
      */
@@ -70,6 +73,7 @@ public class RandomValidateCode {
             e.printStackTrace();
         }
     }
+    
     /*
      * 绘制字符串
      */
@@ -82,6 +86,7 @@ public class RandomValidateCode {
         g.drawString(rand, 13*i, 16);
         return randomString;
     }
+    
     /*
      * 绘制干扰线
      */
@@ -92,6 +97,7 @@ public class RandomValidateCode {
         int yl = random.nextInt(15);
         g.drawLine(x, y, x+xl, y+yl);
     }
+    
     /*
      * 获取随机的字符
      */

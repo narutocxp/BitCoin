@@ -30,7 +30,6 @@ public class TransferAccountService {
 		this.transactionRecordDao = transactionRecordDao;
 	}
 
-
 	public WalletDao getWalletDao() {
 		return walletDao;
 	}

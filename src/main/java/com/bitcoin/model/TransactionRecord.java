@@ -1,8 +1,5 @@
 package com.bitcoin.model;
 
-import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -102,5 +99,4 @@ public class TransactionRecord {
 		this.recorded_is_success = recorded_is_success;
 	}
 
-	 
 }

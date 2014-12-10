@@ -17,7 +17,6 @@ import com.bitcoin.page.PageModel;
 import com.bitcoin.page.PageResult;
 import com.bitcoin.utils.RecordComparator;
 
-
 @Service
 public class RecordService {
 
@@ -229,7 +228,6 @@ public class RecordService {
 		pageModel.setContent(content);
 		return pageModel;
 	}
-	
 	
 	/**
 	 * 根据查询的条件获取查询结果集

@@ -19,12 +19,12 @@ import com.opensymphony.xwork2.ActionSupport;
 @Namespace(value="/*")
 public class LogoutAction extends ActionSupport {
 
-    private HttpServletRequest request=ServletActionContext.getRequest();
+	private static final long serialVersionUID = 1L;
+	private HttpServletRequest request=ServletActionContext.getRequest();
 	
     @Action(value="logout",results={@Result(name="success",location="/login.jsp")})
 	public String logout() throws Exception{
     	
-           
     	  HttpSession session=request.getSession();
     	  session.invalidate();
     	  return SUCCESS;

@@ -16,7 +16,6 @@ import com.bitcoin.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")
@@ -24,12 +23,11 @@ import com.opensymphony.xwork2.ModelDriven;
 public class FirstLoginAction extends ActionSupport implements ModelDriven<User>{
 
 	private static final long serialVersionUID = 1L;
-	 Map<String,Object> m=ServletActionContext.getContext().getSession();
+	Map<String,Object> m=ServletActionContext.getContext().getSession();
 	private User user;
 	
 	@Autowired
 	private LoginService loginService;
-	
 	
 	public User getUser() {
 		return user;
@@ -53,11 +51,10 @@ public class FirstLoginAction extends ActionSupport implements ModelDriven<User>
 		return this.user;
 	}
 	
-	 @Action(value="registerlogin",results={@Result(name="success",location="/login.jsp")})
-	 public String registerLogin() throws Exception{
+	@Action(value="registerlogin",results={@Result(name="success",location="/login.jsp")})
+	public String registerLogin() throws Exception{
 	    	
-	    	return SUCCESS;
+	    return SUCCESS;
 	 }
 	
-
 }

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.bitcoin.dao.UserDao;
 import com.bitcoin.model.User;
 
-
 @Service
 public class CheckTimeService {
 	private Logger logger = Logger.getLogger(CheckTimeService.class);
@@ -24,9 +23,6 @@ public class CheckTimeService {
 	public UserDao getUserDao() {
 		return userDao;
 	}
-
-
-
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;

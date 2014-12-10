@@ -43,7 +43,6 @@ public class LoginService {
 		return false;
 	}
 	
-	
 	/**
 	 * 根据Email获取对应用户的激活码
 	 * @param email

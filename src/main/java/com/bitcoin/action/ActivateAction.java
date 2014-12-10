@@ -13,7 +13,6 @@ import com.bitcoin.service.ActivateService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")
@@ -42,8 +41,6 @@ public class ActivateAction extends ActionSupport implements ModelDriven<User>{
 	public void setActivateService(ActivateService activateService) {
 		this.activateService = activateService;
 	}
-
-
 	
 	@Action(value="activate",results={@Result(name="success",location="/WEB-INF/firstlogin.jsp"),@Result(name="error",location="/login.jsp"),@Result(name="input",location="/register.jsp")})
 	public String activate() throws Exception {

@@ -63,13 +63,11 @@ public class RegisterService {
 			user.setUserRegisterTime(registerTime);
 			user.setUserVerificationCode(vcode);
 			
-			
 			//发送邮件到注册邮箱
 			MailUtils utils = new MailUtils();
 			utils.setUsername("1302665507@qq.com");
 			utils.setPassword("dulimima1");
 			utils.setSmtpHost("smtp.qq.com");
-			
 			
 			String mailSubject = "云币账户激活";
 			String toMail = user.getUserMail();

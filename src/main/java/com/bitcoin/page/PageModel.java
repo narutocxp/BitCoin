@@ -2,7 +2,6 @@ package com.bitcoin.page;
 
 import java.util.List;
 
-
 public class PageModel {
 	private int queryKey1;
 	private int queryKey2;

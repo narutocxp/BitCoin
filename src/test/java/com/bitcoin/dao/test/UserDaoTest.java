@@ -41,27 +41,15 @@ public class UserDaoTest {
 			 Assert.assertTrue(false);
 		else
 			Assert.assertTrue(true);
-		
-		
-		
 	}
 	
 	@Test
 	public void testLoadAll(){
 		
-		
 		int currentCount=userDao.getCount("from User");
 		List<User> users=userDao.loadAll();
 		
 		Assert.assertTrue(currentCount==users.size());
-		
-		
-		
-		
 	}
 	
-	
-	
-	
-
 }

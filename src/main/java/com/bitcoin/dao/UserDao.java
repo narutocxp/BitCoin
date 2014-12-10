@@ -7,8 +7,5 @@ import com.bitcoin.model.User;
 
 @Repository
 public class UserDao extends BaseDao<User, String> {
-
-	 
-	
 	
 }

@@ -1,4 +1,5 @@
 package com.bitcoin.utils;
+
 public class IDGenerator {
 	/**
 	 * 生成十六位十六进制钱包地址

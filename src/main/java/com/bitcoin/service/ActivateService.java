@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.bitcoin.dao.UserDao;
 import com.bitcoin.model.User;
 
-
 @Service
 public class ActivateService {
 
@@ -35,8 +34,6 @@ public class ActivateService {
 			return true;
 		return false;
 	}
-	
-	
 	
 	/**
 	 * 判断用户的激活链接是否过期

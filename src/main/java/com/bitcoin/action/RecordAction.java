@@ -16,7 +16,6 @@ import com.bitcoin.service.RecordService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-
 @Controller
 @Scope("prototype")
 @ParentPackage("struts-default")
@@ -91,6 +90,7 @@ public class RecordAction extends ActionSupport implements ModelDriven<PageModel
 		request.put("queryKey2", firstPage.getQueryKey2());
 		return SUCCESS;
 	}
+	
 	@Action(value="getBeforePage",results={@Result(name="success",location="/WEB-INF/records.jsp")})
 	public String getBeforePage(){
 		PageModel beforePage = recordService.getBeforePage(pageModel.getCurrentPage(), pageModel.getQueryKey1(), pageModel.getQueryKey2());
@@ -100,6 +100,7 @@ public class RecordAction extends ActionSupport implements ModelDriven<PageModel
 		request.put("queryKey2", beforePage.getQueryKey2());
 		return SUCCESS;
 	}
+	
 	@Action(value="getAfterPage",results={@Result(name="success",location="/WEB-INF/records.jsp")})
 	public String getAfterPage(){
 		PageModel afterPage = recordService.getAfterPage(pageModel.getCurrentPage(), pageModel.getQueryKey1(), pageModel.getQueryKey2());

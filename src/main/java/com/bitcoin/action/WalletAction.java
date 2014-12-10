@@ -25,6 +25,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Namespace(value = "/*")
 public class WalletAction extends ActionSupport implements RequestAware {
 
+	private static final long serialVersionUID = 1L;
 	private static final int PER_PAGE = 5;
 	private static final int ALL = 2;
 	private static int SELECTED_FLAG = ALL;
@@ -72,14 +73,11 @@ public class WalletAction extends ActionSupport implements RequestAware {
 
 	@Action(value = "wallet", results = { @Result(name = "success", location = "/WEB-INF/wallet.jsp") })
 	public String wallet() throws Exception {
-
-		// System.out.println((String)m.get("USER_MAIL"));
 		return state();
 	}
 
 	@Action(value = "add", results = { @Result(name = "success", location = "/WEB-INF/wallet.jsp") })
 	public String add() throws Exception {
-
 		User  user =(User)m.get("user");
 		if (user != null)
 			walletService.add(user.getUserMail());
@@ -90,7 +88,6 @@ public class WalletAction extends ActionSupport implements RequestAware {
 
 	@Action(value = "delete", results = { @Result(name = "success", location = "/WEB-INF/wallet.jsp") })
 	public String delete() throws Exception {
-
 		Wallet wallet = walletService.load(walletAddress);
 		if (wallet != null)
 			walletService.delete(wallet);
@@ -101,18 +98,14 @@ public class WalletAction extends ActionSupport implements RequestAware {
 
 	@Action(value = "update", results = { @Result(name = "success", location = "/WEB-INF/wallet.jsp") })
 	public String update() throws Exception {
-
 		Wallet wallet = walletService.load(walletAddress);
-
 		if (wallet != null) {
-
 			if (wallet.getWalletLocked() == 0)
 				wallet.setWalletLocked(1);
 			else
 				wallet.setWalletLocked(0);
 
 			walletService.update(wallet);
-
 		}
 		return state();
 
@@ -159,7 +152,6 @@ public class WalletAction extends ActionSupport implements RequestAware {
 	}
 
 	public String pagination(String sql, int walletCnt) {
-
 		if (page < 0)
 			page = 0;
 
@@ -173,12 +165,9 @@ public class WalletAction extends ActionSupport implements RequestAware {
 	}
 
 	public String state() throws Exception {
-
 		if (SELECTED_FLAG == ALL) {
-
 			return loadAll();
 		} else {
-
 			selected = SELECTED_FLAG;
 			walletAddress = WALLET_SEARCH_ADDRESS_FLAG;
 			return search();
@@ -187,7 +176,6 @@ public class WalletAction extends ActionSupport implements RequestAware {
 	}
 
 	public void setRequest(Map<String, Object> request) {
-
 		this.request = request;
 
 	}

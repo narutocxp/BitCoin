@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bitcoin.utils.RandomValidateCode;
 
-
 public class VcodeServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

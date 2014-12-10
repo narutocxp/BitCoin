@@ -11,7 +11,6 @@
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<hibernate.version>3.5.6-Final</hibernate.version>
 		<struts2.version>2.3.16</struts2.version>
-
 	</properties>
 
 	<dependencies>

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.bitcoin.dao.UserDao;
 import com.bitcoin.model.User;
 
-
 @Service
 public class UserService {
 
@@ -14,11 +13,8 @@ public class UserService {
 	private UserDao userDao;
 	
 	public User  get(String id){
-		
-		
 		return userDao.get(id);  
 		
 	}
-	
 	
 }

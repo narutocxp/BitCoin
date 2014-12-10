@@ -25,6 +25,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Namespace(value = "/*")
 public class LoginAction extends ActionSupport {
 
+	private static final long serialVersionUID = 1L;
 	private String userMail;
 	private String userPassword;
 	Map<String, Object> m = ServletActionContext.getContext().getSession();
@@ -70,9 +71,7 @@ public class LoginAction extends ActionSupport {
 			m.put("user", user);
 			return SUCCESS;
 
-		}
-		{
-
+		}else{
 			Map<String, Object> info = new HashMap<String, Object>();
 			info.put("state", "ERROR!");
 			info.put("prompt", "warning:登录失败，账号或密码错误！");
@@ -82,7 +81,6 @@ public class LoginAction extends ActionSupport {
 			request.setAttribute("info", info);
 
 			return ERROR;
-
 		}
 	}
 

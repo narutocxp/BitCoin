@@ -12,7 +12,6 @@ import com.bitcoin.utils.MailUtils;
 @Service
 public class ResetPasswordService {
 	
-	
 	@Autowired
 	private UserDao userDao;
 	
@@ -46,7 +45,6 @@ public class ResetPasswordService {
 		
 	}
 	
-	
 	/**
 	 * 重置密码
 	 * @param email
@@ -60,6 +58,5 @@ public class ResetPasswordService {
 		u.setUserPassword(newPassword);
 		userDao.update(u);
 	}
-	
 
 }
