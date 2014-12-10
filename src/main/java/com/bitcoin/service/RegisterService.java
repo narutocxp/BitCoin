@@ -75,7 +75,7 @@ public class RegisterService {
 			String toMail = user.getUserMail();
 			String address = "   http://127.0.0.1:8080/team-bitcoin/activate?user.userMail="+user.getUserMail();
 			StringBuffer mailContent = new StringBuffer();
-			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address).append("该链接五分钟内有效");
+			mailContent.append("您的云币账户已准备就绪！请点击以下链接进行激活，并输入验证码：").append(vcode).append(address).append("   该链接五分钟内有效");
 			
 			if(utils.sendMailUtis(toMail, mailSubject, mailContent.toString())){
 				this.saveUser(user);    //保存用户信息
